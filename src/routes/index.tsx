@@ -1,7 +1,9 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import parampara from "@/assets/parampara.jpg.asset.json";
 import liaGuru from "@/assets/lia-guru.jpg.asset.json";
 import foto2 from "@/assets/foto2.jpg.asset.json";
+import { ArrowRight, BookOpen, FileText } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -20,6 +22,8 @@ export const Route = createFileRoute("/")({
       },
       { property: "og:image", content: parampara.url },
       { name: "twitter:image", content: parampara.url },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: Inicio,
@@ -27,29 +31,57 @@ export const Route = createFileRoute("/")({
 
 function Inicio() {
   return (
-    <div>
-      <section className="border-b border-border bg-sand">
-        <div className="section-x py-8 text-center">
-          <p className="font-display text-2xl text-primary md:text-3xl">
-            FUNDACIÓN HARIHARANANDA KRIYA YOGA
+    <div className="home-page">
+      <section className="relative min-h-[calc(100svh-4.5rem)] overflow-hidden bg-ink text-ink-foreground md:min-h-[calc(100svh-6rem)]">
+        <img
+          src={parampara.url}
+          alt=""
+          className="absolute inset-0 h-full w-full object-cover opacity-35 mix-blend-luminosity"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-ink/20 via-ink/65 to-ink" />
+        <div className="section-x relative flex min-h-[calc(100svh-4.5rem)] flex-col justify-end pb-16 pt-32 md:min-h-[calc(100svh-6rem)] md:pb-20">
+          <p className="text-xs uppercase tracking-[0.3em] text-gold">Fundación Hariharananda Kriya Yoga</p>
+          <h1 className="mt-5 max-w-4xl text-balance-title font-display text-5xl leading-[0.95] sm:text-6xl md:text-8xl">
+            Kriya Yoga
+          </h1>
+          <p className="mt-3 font-display text-2xl italic text-gold md:text-4xl">Un camino para todos</p>
+          <p className="mt-6 max-w-2xl text-base leading-relaxed text-ink-foreground/75 md:text-lg">
+            El Kriya Yoga es el método más apropiado para el hombre del siglo XXI.
           </p>
+          <div className="mt-8 flex flex-wrap gap-3">
+            <Button asChild size="lg" className="rounded-full px-7 shadow-lg shadow-primary/30">
+              <Link to="/kriya-yoga">Conocer Kriya Yoga <ArrowRight /></Link>
+            </Button>
+            <Button asChild size="lg" variant="outline" className="rounded-full border-ink-foreground/25 bg-ink/25 text-ink-foreground backdrop-blur-md hover:bg-ink-foreground/10 hover:text-ink-foreground">
+              <Link to="/contacto">Contacto</Link>
+            </Button>
+          </div>
+          <div className="mt-12 flex items-center gap-4 text-xs uppercase tracking-[0.22em] text-ink-foreground/50">
+            <span className="h-px w-12 bg-gold/60" /> Meditación espontánea
+          </div>
+        </div>
+      </section>
+
+      <section className="border-b border-border/70 bg-sand/80 backdrop-blur-sm">
+        <div className="section-x py-10 text-center md:py-14">
+          <p className="text-xs uppercase tracking-[0.3em] text-primary">El linaje</p>
           <img
             src={parampara.url}
             alt="Parampara: linaje de maestros de Kriya Yoga"
-            className="mt-6 w-full rounded-lg"
+            className="image-depth mt-6 w-full"
           />
         </div>
       </section>
 
-      <article className="section-x py-16">
+      <article className="section-x py-16 md:py-24">
         <header className="text-center">
           <h1 className="font-display text-4xl text-foreground md:text-5xl">KRIYA YOGA</h1>
-          <p className="mt-3 text-balance-title font-display text-2xl text-primary">
+          <p className="mt-3 text-balance-title font-display text-2xl italic text-primary">
             UN CAMINO PARA TODOS
           </p>
         </header>
 
-        <div className="mx-auto mt-10 max-w-3xl space-y-6 text-base leading-relaxed text-muted-foreground">
+        <div className="mx-auto mt-12 max-w-3xl space-y-6 text-base leading-relaxed text-muted-foreground md:text-lg">
           <p>
             En general, hay muchos caminos que buscan ir más allá de las limitaciones de la
             mente y experimentar la naturaleza del propio ser. En casi todos estos sistemas,
@@ -70,7 +102,7 @@ function Inicio() {
             <img
               src={liaGuru.url}
               alt="Yogacharya Lía Cristina Upegui con su Gurú"
-              className="w-full rounded-lg border-4 border-primary/40 p-1"
+               className="image-depth w-full"
             />
           </figure>
 
@@ -106,7 +138,7 @@ function Inicio() {
             <img
               src={foto2.url}
               alt="Práctica de Kriya Yoga"
-              className="w-full rounded-lg border-4 border-primary/40 p-1"
+               className="image-depth w-full"
             />
           </figure>
 
@@ -135,6 +167,14 @@ function Inicio() {
             práctica sincera y querer <b className="text-foreground">ser feliz</b>.
           </p>
         </div>
+        <nav className="mx-auto mt-16 grid max-w-3xl gap-3 sm:grid-cols-2" aria-label="Continuar explorando">
+          <Button asChild variant="outline" size="lg" className="h-auto justify-start rounded-md px-5 py-4">
+            <Link to="/documentos"><FileText /> Documentos de la Fundación</Link>
+          </Button>
+          <Button asChild variant="outline" size="lg" className="h-auto justify-start rounded-md px-5 py-4">
+            <Link to="/libros"><BookOpen /> Libros de Kriya Yoga</Link>
+          </Button>
+        </nav>
       </article>
     </div>
   );

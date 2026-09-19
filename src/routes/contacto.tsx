@@ -3,6 +3,8 @@ import { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
+import { Button } from "@/components/ui/button";
+import { Facebook, Mail, MessageCircle, Phone } from "lucide-react";
 
 export const Route = createFileRoute("/contacto")({
   head: () => ({
@@ -19,6 +21,8 @@ export const Route = createFileRoute("/contacto")({
         content:
           "Escríbanos a fundacionhariharananda@gmail.com o llame al 317 429 3044.",
       },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary" },
     ],
   }),
   component: Contacto,
@@ -64,28 +68,28 @@ function Contacto() {
             </a>
           </p>
           <p>Envigado, Antioquia — Colombia</p>
-          <div className="flex gap-4 pt-2">
+          <div className="flex flex-wrap gap-3 pt-3">
             <a
               href="https://www.facebook.com/pg/HariharanandaKriyaYoga/"
               target="_blank"
               rel="noreferrer"
-              className="text-primary hover:underline"
+              className="flex items-center gap-2 rounded-full border border-border bg-card px-4 py-2 text-primary transition-colors hover:bg-accent"
             >
-              Facebook
+              <Facebook className="h-4 w-4" /> Facebook
             </a>
             <a
               href="http://raghabananda.blogspot.com/"
               target="_blank"
               rel="noreferrer"
-              className="text-primary hover:underline"
+              className="flex items-center gap-2 rounded-full border border-border bg-card px-4 py-2 text-primary transition-colors hover:bg-accent"
             >
-              Blog Raghabananda
+              <MessageCircle className="h-4 w-4" /> Blog Raghabananda
             </a>
           </div>
         </div>
 
         <form
-          className="space-y-5 rounded-lg border border-border bg-card p-6"
+          className="space-y-5 rounded-lg border border-border/70 bg-card/85 p-6 shadow-xl backdrop-blur-xl md:p-8"
           onSubmit={(e) => {
             e.preventDefault();
             window.location.href = mailto;
@@ -128,12 +132,13 @@ function Contacto() {
               onChange={(e) => setComentario(e.target.value)}
             />
           </div>
-          <button
+          <Button
             type="submit"
-            className="w-full rounded-full bg-primary px-6 py-3 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90"
+            size="lg"
+            className="w-full rounded-full"
           >
-            Enviar ...
-          </button>
+            <Mail /> Enviar
+          </Button>
         </form>
       </div>
     </div>

@@ -21,6 +21,8 @@ export const Route = createFileRoute("/noticias")({
       },
       { property: "og:image", content: construccionPaz.url },
       { name: "twitter:image", content: construccionPaz.url },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: Noticias,
@@ -28,7 +30,7 @@ export const Route = createFileRoute("/noticias")({
 
 function Noticias() {
   return (
-    <div className="section-x py-16">
+    <div className="section-x py-16 md:py-24">
       <h1 className="text-center font-display text-4xl text-foreground md:text-5xl">
         Noticias
       </h1>

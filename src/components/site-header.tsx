@@ -1,7 +1,8 @@
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
-import { ChevronDown, Menu, X } from "lucide-react";
+import { ChevronDown, Facebook, Menu, MessageCircle, X } from "lucide-react";
 import logo from "@/assets/logo.png.asset.json";
+import { Button } from "@/components/ui/button";
 
 const fhky = [
   { to: "/empoderamiento", label: "Empoderamiento" },
@@ -26,13 +27,13 @@ export function SiteHeader() {
   const close = () => setOpen(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-border/70 bg-background/90 backdrop-blur-md">
-      <div className="section-x flex h-16 items-center justify-between gap-4 md:h-20">
-        <Link to="/" className="flex items-center gap-3" onClick={close}>
+    <header className="sticky top-0 z-50 border-b border-border/60 bg-background/80 shadow-[0_10px_40px_oklch(0.16_0.04_275/0.07)] backdrop-blur-xl">
+      <div className="section-x flex h-[4.5rem] items-center justify-between gap-3 md:h-24">
+        <Link to="/" className="group flex min-w-0 items-center gap-3" onClick={close}>
           <img
             src={logo.url}
             alt="Fundación Hariharananda Kriya Yoga"
-            className="h-11 w-auto md:h-14"
+            className="h-12 w-auto drop-shadow-md transition-transform duration-500 group-hover:rotate-3 group-hover:scale-105 md:h-16"
           />
           <span className="hidden font-display text-base leading-tight text-foreground sm:block md:text-lg">
             Fundación Hariharananda
@@ -42,17 +43,17 @@ export function SiteHeader() {
           </span>
         </Link>
 
-        <nav className="hidden items-center gap-6 lg:flex">
+        <nav className="hidden items-center gap-4 xl:flex">
           <div className="group relative">
-            <button className="flex items-center gap-1 text-sm tracking-wide text-muted-foreground transition-colors hover:text-primary">
+            <Button variant="ghost" size="sm" className="font-normal text-muted-foreground hover:text-primary">
               FHKY <ChevronDown className="h-3.5 w-3.5" />
-            </button>
-            <ul className="invisible absolute left-0 top-full z-50 w-52 rounded-md border border-border bg-background py-2 opacity-0 shadow-lg transition group-hover:visible group-hover:opacity-100">
+            </Button>
+            <ul className="invisible absolute left-0 top-full z-50 w-56 translate-y-2 rounded-md border border-border/70 bg-background/95 p-2 opacity-0 shadow-xl backdrop-blur-xl transition duration-200 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100">
               {fhky.map((item) => (
                 <li key={item.to}>
                   <Link
                     to={item.to}
-                    className="block px-4 py-2 text-sm text-muted-foreground hover:bg-accent hover:text-primary [&.active]:text-primary"
+                    className="block rounded-sm px-4 py-2.5 text-sm text-muted-foreground transition-colors hover:bg-accent hover:text-primary [&.active]:bg-accent [&.active]:text-primary"
                   >
                     {item.label}
                   </Link>
@@ -65,7 +66,7 @@ export function SiteHeader() {
             <Link
               key={item.to}
               to={item.to}
-              className="text-sm tracking-wide text-muted-foreground transition-colors hover:text-primary [&.active]:text-primary"
+              className="story-link px-1 py-2 text-sm text-muted-foreground transition-colors hover:text-primary [&.active]:text-primary"
             >
               {item.label}
             </Link>
@@ -75,46 +76,49 @@ export function SiteHeader() {
             href={FACEBOOK}
             target="_blank"
             rel="noreferrer"
-            className="text-sm text-muted-foreground transition-colors hover:text-primary"
+            aria-label="Facebook"
+            title="Facebook"
+            className="rounded-full p-2 text-muted-foreground transition-colors hover:bg-accent hover:text-primary"
           >
-            Facebook
+            <Facebook className="h-4 w-4" />
           </a>
           <a
             href={BLOGSPOT}
             target="_blank"
             rel="noreferrer"
-            className="text-sm text-muted-foreground transition-colors hover:text-primary"
+            aria-label="Blog Raghabananda"
+            title="Blog Raghabananda"
+            className="rounded-full p-2 text-muted-foreground transition-colors hover:bg-accent hover:text-primary"
           >
-            Blog
+            <MessageCircle className="h-4 w-4" />
           </a>
 
-          <Link
-            to="/contacto"
-            className="rounded-full bg-primary px-5 py-2 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90"
-          >
-            Contacto
-          </Link>
+          <Button asChild className="rounded-full px-5 shadow-md shadow-primary/20">
+            <Link to="/contacto">Contacto</Link>
+          </Button>
         </nav>
 
-        <button
+        <Button
+          variant="outline"
+          size="icon"
           type="button"
           aria-label="Abrir menú"
           onClick={() => setOpen((v) => !v)}
-          className="rounded-md border border-border p-2 text-foreground lg:hidden"
+          className="rounded-full xl:hidden"
         >
           {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-        </button>
+        </Button>
       </div>
 
       {open && (
-        <div className="border-t border-border bg-background lg:hidden">
-          <nav className="section-x flex flex-col gap-1 py-4">
+        <div className="border-t border-border bg-background/95 shadow-xl backdrop-blur-xl xl:hidden">
+          <nav className="section-x grid max-h-[calc(100vh-4.5rem)] grid-cols-2 gap-1 overflow-y-auto py-5 sm:grid-cols-3">
             {[...nav, ...fhky].map((item) => (
               <Link
                 key={item.to}
                 to={item.to}
                 onClick={close}
-                className="rounded-md px-2 py-2 text-sm text-muted-foreground hover:bg-accent hover:text-primary [&.active]:text-primary"
+                className="rounded-md px-3 py-3 text-sm text-muted-foreground hover:bg-accent hover:text-primary [&.active]:bg-accent [&.active]:text-primary"
               >
                 {item.label}
               </Link>
@@ -122,13 +126,13 @@ export function SiteHeader() {
             <Link
               to="/contacto"
               onClick={close}
-              className="mt-2 rounded-full bg-primary px-5 py-2 text-center text-sm font-medium text-primary-foreground"
+              className="col-span-2 mt-2 rounded-full bg-primary px-5 py-3 text-center text-sm font-medium text-primary-foreground sm:col-span-1"
             >
               Contacto
             </Link>
-            <div className="mt-3 flex gap-4 px-2 text-sm text-muted-foreground">
-              <a href={FACEBOOK} target="_blank" rel="noreferrer">Facebook</a>
-              <a href={BLOGSPOT} target="_blank" rel="noreferrer">Blog Raghabananda</a>
+            <div className="col-span-2 mt-3 flex gap-5 px-2 text-sm text-muted-foreground sm:col-span-3">
+              <a className="flex items-center gap-2 hover:text-primary" href={FACEBOOK} target="_blank" rel="noreferrer"><Facebook className="h-4 w-4" />Facebook</a>
+              <a className="flex items-center gap-2 hover:text-primary" href={BLOGSPOT} target="_blank" rel="noreferrer"><MessageCircle className="h-4 w-4" />Blog Raghabananda</a>
             </div>
           </nav>
         </div>

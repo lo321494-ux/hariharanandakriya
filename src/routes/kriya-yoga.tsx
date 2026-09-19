@@ -18,6 +18,8 @@ export const Route = createFileRoute("/kriya-yoga")({
       },
       { property: "og:image", content: kriyaBaba.url },
       { name: "twitter:image", content: kriyaBaba.url },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: KriyaYoga,
@@ -84,7 +86,7 @@ const ensenanzas: { texto: string; fuente?: string }[] = [
 
 function KriyaYoga() {
   return (
-    <div className="section-x py-16">
+    <div className="section-x py-16 md:py-24">
       <h1 className="text-center font-display text-4xl text-foreground md:text-5xl">
         KRIYA YOGA
       </h1>
@@ -92,14 +94,14 @@ function KriyaYoga() {
       <img
         src={kriyaBaba.url}
         alt="Baba enseñando Kriya Yoga"
-        className="mx-auto mt-8 w-full max-w-md rounded-lg border-4 border-primary/40 p-1"
+        className="image-depth mx-auto mt-10 w-full max-w-md"
       />
 
       <div className="mx-auto mt-12 max-w-3xl space-y-8">
         {ensenanzas.map((e) => (
           <blockquote
             key={e.texto.slice(0, 40)}
-            className="border-l-4 border-primary/50 pl-5 text-base leading-relaxed text-muted-foreground"
+            className="rounded-r-md border-l-2 border-primary/50 bg-card/55 py-5 pl-5 pr-4 text-base leading-relaxed text-muted-foreground backdrop-blur-sm md:pl-7 md:pr-7"
           >
             <p>{e.texto}</p>
             {e.fuente && (

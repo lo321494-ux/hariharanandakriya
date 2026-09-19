@@ -19,6 +19,8 @@ export const Route = createFileRoute("/antecedentes")({
       },
       { property: "og:image", content: hariharananda1.url },
       { name: "twitter:image", content: hariharananda1.url },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: Antecedentes,
@@ -50,15 +52,15 @@ const bloques = [
 
 function Antecedentes() {
   return (
-    <div className="section-x py-16">
+    <div className="section-x py-16 md:py-24">
       <h1 className="text-center font-display text-4xl text-foreground md:text-5xl">
         ANTECEDENTES
       </h1>
 
-      <div className="mx-auto mt-10 grid max-w-5xl gap-10 md:grid-cols-[2fr_1fr]">
+      <div className="mx-auto mt-12 grid max-w-5xl gap-10 lg:grid-cols-[2fr_1fr]">
         <div className="space-y-8">
           {bloques.map((b) => (
-            <section key={b.titulo}>
+            <section key={b.titulo} className="border-l border-primary/30 pl-5 md:pl-7">
               <h2 className="font-display text-2xl text-primary">{b.titulo}</h2>
               <p className="mt-3 text-base leading-relaxed text-muted-foreground">{b.texto}</p>
             </section>
@@ -80,7 +82,7 @@ function Antecedentes() {
           </section>
         </div>
 
-        <div className="space-y-6">
+        <div className="space-y-6 lg:sticky lg:top-32 lg:self-start">
           <img
             src={hariharananda1.url}
             alt="Paramahamsa Hariharananda"

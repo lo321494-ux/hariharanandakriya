@@ -17,6 +17,8 @@ export const Route = createFileRoute("/empoderamiento")({
       },
       { property: "og:image", content: hariharananda3.url },
       { name: "twitter:image", content: hariharananda3.url },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: Empoderamiento,
@@ -24,12 +26,12 @@ export const Route = createFileRoute("/empoderamiento")({
 
 function Empoderamiento() {
   return (
-    <div className="section-x py-16 text-center">
+    <div className="section-x py-16 text-center md:py-24">
       <h1 className="font-display text-4xl text-foreground md:text-5xl">EMPODERAMIENTO</h1>
       <img
         src={hariharananda3.url}
         alt="Paramahamsa Hariharananda"
-        className="mx-auto mt-10 w-full max-w-md rounded-lg border-4 border-primary/40 p-1"
+        className="image-depth mx-auto mt-10 w-full max-w-md"
       />
       <p className="mx-auto mt-10 max-w-xl text-base leading-relaxed text-muted-foreground">
         Para información sobre esta sección, escriba a{" "}
