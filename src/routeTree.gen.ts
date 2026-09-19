@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AntecedentesRouteImport } from './routes/antecedentes'
 import { Route as ContactoRouteImport } from './routes/contacto'
 import { Route as FundacionRouteImport } from './routes/fundacion'
 import { Route as KriyaYogaRouteImport } from './routes/kriya-yoga'
@@ -19,6 +20,11 @@ import { Route as ProgramasRouteImport } from './routes/programas'
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AntecedentesRoute = AntecedentesRouteImport.update({
+  id: '/antecedentes',
+  path: '/antecedentes',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContactoRoute = ContactoRouteImport.update({
@@ -49,6 +55,7 @@ const ProgramasRoute = ProgramasRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/antecedentes': typeof AntecedentesRoute
   '/contacto': typeof ContactoRoute
   '/fundacion': typeof FundacionRoute
   '/kriya-yoga': typeof KriyaYogaRoute
@@ -57,6 +64,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/antecedentes': typeof AntecedentesRoute
   '/contacto': typeof ContactoRoute
   '/fundacion': typeof FundacionRoute
   '/kriya-yoga': typeof KriyaYogaRoute
@@ -66,6 +74,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/antecedentes': typeof AntecedentesRoute
   '/contacto': typeof ContactoRoute
   '/fundacion': typeof FundacionRoute
   '/kriya-yoga': typeof KriyaYogaRoute
@@ -75,13 +84,26 @@ export interface FileRoutesById {
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    '/' | '/contacto' | '/fundacion' | '/kriya-yoga' | '/linaje' | '/programas'
+    | '/'
+    | '/antecedentes'
+    | '/contacto'
+    | '/fundacion'
+    | '/kriya-yoga'
+    | '/linaje'
+    | '/programas'
   fileRoutesByTo: FileRoutesByTo
   to:
-    '/' | '/contacto' | '/fundacion' | '/kriya-yoga' | '/linaje' | '/programas'
+    | '/'
+    | '/antecedentes'
+    | '/contacto'
+    | '/fundacion'
+    | '/kriya-yoga'
+    | '/linaje'
+    | '/programas'
   id:
     | '__root__'
     | '/'
+    | '/antecedentes'
     | '/contacto'
     | '/fundacion'
     | '/kriya-yoga'
@@ -91,6 +113,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AntecedentesRoute: typeof AntecedentesRoute
   ContactoRoute: typeof ContactoRoute
   FundacionRoute: typeof FundacionRoute
   KriyaYogaRoute: typeof KriyaYogaRoute
@@ -105,6 +128,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/antecedentes': {
+      id: '/antecedentes'
+      path: '/antecedentes'
+      fullPath: '/antecedentes'
+      preLoaderRoute: typeof AntecedentesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contacto': {
@@ -147,6 +177,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AntecedentesRoute: AntecedentesRoute,
   ContactoRoute: ContactoRoute,
   FundacionRoute: FundacionRoute,
   KriyaYogaRoute: KriyaYogaRoute,

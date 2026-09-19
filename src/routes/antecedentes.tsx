@@ -47,7 +47,6 @@ const bloques = [
   },
 ];
 
-export default function noop() {}
 
 function Antecedentes() {
   return (
