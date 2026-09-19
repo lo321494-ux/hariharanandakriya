@@ -55,13 +55,13 @@ function Libros() {
         .
       </p>
 
-      <div className="mx-auto mt-12 grid max-w-4xl gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="mx-auto mt-12 grid max-w-4xl gap-7 sm:grid-cols-2 lg:grid-cols-4 [perspective:1400px]">
         {portadas.map((p) => (
           <img
             key={p.alt}
             src={p.src}
             alt={p.alt}
-            className="image-depth w-full"
+            className="image-depth w-full transition-transform duration-500 odd:[transform:perspective(1100px)_rotateY(3deg)] even:[transform:perspective(1100px)_rotateY(-3deg)] hover:[transform:perspective(1100px)_rotateY(0deg)_translateY(-8px)]"
           />
         ))}
       </div>
@@ -70,7 +70,7 @@ function Libros() {
         <h2 className="font-display text-2xl text-primary">
           Seleccione el libro para leer
         </h2>
-        <ul className="mt-4 divide-y divide-border rounded-lg border border-border bg-card">
+        <ul className="mt-4 divide-y divide-border rounded-lg border border-aqua/30 bg-card/85 backdrop-blur-xl">
           {lecturas.map((l) => (
             <li key={l.file}>
               <a

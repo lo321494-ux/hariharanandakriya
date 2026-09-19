@@ -42,7 +42,7 @@ function Contacto() {
     )}`;
 
   return (
-    <div className="section-x py-16">
+    <div className="section-x py-16 md:py-24">
       <h1 className="text-center font-display text-4xl text-foreground md:text-5xl">
         Contacto
       </h1>
@@ -89,7 +89,7 @@ function Contacto() {
         </div>
 
         <form
-          className="space-y-5 rounded-lg border border-border/70 bg-card/85 p-6 shadow-xl backdrop-blur-xl md:p-8"
+          className="space-y-5 rounded-lg border border-aqua/30 bg-card/85 p-6 shadow-xl shadow-aqua/10 backdrop-blur-xl md:p-8"
           onSubmit={(e) => {
             e.preventDefault();
             window.location.href = mailto;

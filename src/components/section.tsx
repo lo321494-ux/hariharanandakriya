@@ -39,8 +39,8 @@ export function PageHero({
 }) {
   return (
     <section className="page-hero text-ink-foreground">
-      <div className="section-x relative py-20 md:py-28">
-        <p className="text-xs uppercase tracking-[0.3em] text-primary">{eyebrow}</p>
+      <div className="section-x relative z-10 py-20 md:py-28">
+        <p className="text-xs uppercase tracking-[0.3em] text-gold">{eyebrow}</p>
         <h1 className="mt-5 max-w-3xl text-balance-title text-4xl leading-[1.1] md:text-6xl">
           {title}
         </h1>
