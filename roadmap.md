@@ -9,4 +9,4 @@
 - [x] Incorporar movimiento tridimensional sutil y verificar errores en celular y computador.
 - [x] Hacer visible el nombre completo de la Fundación en la apertura sin repetir Kriya Yoga.
 - [x] Retirar la cuarta fotografía de la página principal sin eliminar su texto.
-- [ ] Verificar nuevamente la portada y el estado técnico.
+- [x] Verificar nuevamente la portada y el estado técnico.
