@@ -4,3 +4,6 @@
 - [x] Aplicar profundidad editorial coherente y corregir el error de la escena 3D.
 - [x] Aplicar la portada “Apertura cálida” sin alterar contenido ni imágenes originales.
 - [x] Verificar nitidez, encuadre del linaje y adaptación móvil de la nueva portada.
+- [ ] Usar la nueva fotografía del maestro como imagen principal, con nitidez y profundidad.
+- [ ] Simplificar la apertura para evitar repeticiones y hacer la navegación más intuitiva.
+- [ ] Incorporar movimiento tridimensional sutil y verificar errores en celular y computador.
