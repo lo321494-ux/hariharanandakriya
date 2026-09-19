@@ -2,12 +2,14 @@ import { useEffect, useState } from "react";
 import logo from "@/assets/logo.png.asset.json";
 
 export function IntroSplash() {
-  const [visible, setVisible] = useState(false);
+  const [visible, setVisible] = useState(true);
   const [leaving, setLeaving] = useState(false);
 
   useEffect(() => {
-    if (window.sessionStorage.getItem("fhky-intro-seen")) return;
-    setVisible(true);
+    if (window.sessionStorage.getItem("fhky-intro-seen")) {
+      setVisible(false);
+      return;
+    }
     const timer = window.setTimeout(() => dismiss(), 1900);
     return () => window.clearTimeout(timer);
   }, []);
