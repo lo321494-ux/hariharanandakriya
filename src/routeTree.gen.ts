@@ -14,13 +14,10 @@ import { Route as AntecedentesRouteImport } from './routes/antecedentes'
 import { Route as ContactoRouteImport } from './routes/contacto'
 import { Route as DocumentosRouteImport } from './routes/documentos'
 import { Route as EmpoderamientoRouteImport } from './routes/empoderamiento'
-import { Route as FundacionRouteImport } from './routes/fundacion'
 import { Route as HariharanandaRouteImport } from './routes/hariharananda'
 import { Route as KriyaYogaRouteImport } from './routes/kriya-yoga'
 import { Route as LibrosRouteImport } from './routes/libros'
-import { Route as LinajeRouteImport } from './routes/linaje'
 import { Route as NoticiasRouteImport } from './routes/noticias'
-import { Route as ProgramasRouteImport } from './routes/programas'
 import { Route as RaghabanandaRouteImport } from './routes/raghabananda'
 
 const IndexRoute = IndexRouteImport.update({
@@ -48,11 +45,6 @@ const EmpoderamientoRoute = EmpoderamientoRouteImport.update({
   path: '/empoderamiento',
   getParentRoute: () => rootRouteImport,
 } as any)
-const FundacionRoute = FundacionRouteImport.update({
-  id: '/fundacion',
-  path: '/fundacion',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const HariharanandaRoute = HariharanandaRouteImport.update({
   id: '/hariharananda',
   path: '/hariharananda',
@@ -68,19 +60,9 @@ const LibrosRoute = LibrosRouteImport.update({
   path: '/libros',
   getParentRoute: () => rootRouteImport,
 } as any)
-const LinajeRoute = LinajeRouteImport.update({
-  id: '/linaje',
-  path: '/linaje',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const NoticiasRoute = NoticiasRouteImport.update({
   id: '/noticias',
   path: '/noticias',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ProgramasRoute = ProgramasRouteImport.update({
-  id: '/programas',
-  path: '/programas',
   getParentRoute: () => rootRouteImport,
 } as any)
 const RaghabanandaRoute = RaghabanandaRouteImport.update({
@@ -95,13 +77,10 @@ export interface FileRoutesByFullPath {
   '/contacto': typeof ContactoRoute
   '/documentos': typeof DocumentosRoute
   '/empoderamiento': typeof EmpoderamientoRoute
-  '/fundacion': typeof FundacionRoute
   '/hariharananda': typeof HariharanandaRoute
   '/kriya-yoga': typeof KriyaYogaRoute
   '/libros': typeof LibrosRoute
-  '/linaje': typeof LinajeRoute
   '/noticias': typeof NoticiasRoute
-  '/programas': typeof ProgramasRoute
   '/raghabananda': typeof RaghabanandaRoute
 }
 export interface FileRoutesByTo {
@@ -110,13 +89,10 @@ export interface FileRoutesByTo {
   '/contacto': typeof ContactoRoute
   '/documentos': typeof DocumentosRoute
   '/empoderamiento': typeof EmpoderamientoRoute
-  '/fundacion': typeof FundacionRoute
   '/hariharananda': typeof HariharanandaRoute
   '/kriya-yoga': typeof KriyaYogaRoute
   '/libros': typeof LibrosRoute
-  '/linaje': typeof LinajeRoute
   '/noticias': typeof NoticiasRoute
-  '/programas': typeof ProgramasRoute
   '/raghabananda': typeof RaghabanandaRoute
 }
 export interface FileRoutesById {
@@ -126,13 +102,10 @@ export interface FileRoutesById {
   '/contacto': typeof ContactoRoute
   '/documentos': typeof DocumentosRoute
   '/empoderamiento': typeof EmpoderamientoRoute
-  '/fundacion': typeof FundacionRoute
   '/hariharananda': typeof HariharanandaRoute
   '/kriya-yoga': typeof KriyaYogaRoute
   '/libros': typeof LibrosRoute
-  '/linaje': typeof LinajeRoute
   '/noticias': typeof NoticiasRoute
-  '/programas': typeof ProgramasRoute
   '/raghabananda': typeof RaghabanandaRoute
 }
 export interface FileRouteTypes {
@@ -143,13 +116,10 @@ export interface FileRouteTypes {
     | '/contacto'
     | '/documentos'
     | '/empoderamiento'
-    | '/fundacion'
     | '/hariharananda'
     | '/kriya-yoga'
     | '/libros'
-    | '/linaje'
     | '/noticias'
-    | '/programas'
     | '/raghabananda'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -158,13 +128,10 @@ export interface FileRouteTypes {
     | '/contacto'
     | '/documentos'
     | '/empoderamiento'
-    | '/fundacion'
     | '/hariharananda'
     | '/kriya-yoga'
     | '/libros'
-    | '/linaje'
     | '/noticias'
-    | '/programas'
     | '/raghabananda'
   id:
     | '__root__'
@@ -173,13 +140,10 @@ export interface FileRouteTypes {
     | '/contacto'
     | '/documentos'
     | '/empoderamiento'
-    | '/fundacion'
     | '/hariharananda'
     | '/kriya-yoga'
     | '/libros'
-    | '/linaje'
     | '/noticias'
-    | '/programas'
     | '/raghabananda'
   fileRoutesById: FileRoutesById
 }
@@ -189,13 +153,10 @@ export interface RootRouteChildren {
   ContactoRoute: typeof ContactoRoute
   DocumentosRoute: typeof DocumentosRoute
   EmpoderamientoRoute: typeof EmpoderamientoRoute
-  FundacionRoute: typeof FundacionRoute
   HariharanandaRoute: typeof HariharanandaRoute
   KriyaYogaRoute: typeof KriyaYogaRoute
   LibrosRoute: typeof LibrosRoute
-  LinajeRoute: typeof LinajeRoute
   NoticiasRoute: typeof NoticiasRoute
-  ProgramasRoute: typeof ProgramasRoute
   RaghabanandaRoute: typeof RaghabanandaRoute
 }
 
@@ -236,13 +197,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof EmpoderamientoRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/fundacion': {
-      id: '/fundacion'
-      path: '/fundacion'
-      fullPath: '/fundacion'
-      preLoaderRoute: typeof FundacionRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/hariharananda': {
       id: '/hariharananda'
       path: '/hariharananda'
@@ -264,25 +218,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LibrosRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/linaje': {
-      id: '/linaje'
-      path: '/linaje'
-      fullPath: '/linaje'
-      preLoaderRoute: typeof LinajeRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/noticias': {
       id: '/noticias'
       path: '/noticias'
       fullPath: '/noticias'
       preLoaderRoute: typeof NoticiasRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/programas': {
-      id: '/programas'
-      path: '/programas'
-      fullPath: '/programas'
-      preLoaderRoute: typeof ProgramasRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/raghabananda': {
@@ -301,13 +241,10 @@ const rootRouteChildren: RootRouteChildren = {
   ContactoRoute: ContactoRoute,
   DocumentosRoute: DocumentosRoute,
   EmpoderamientoRoute: EmpoderamientoRoute,
-  FundacionRoute: FundacionRoute,
   HariharanandaRoute: HariharanandaRoute,
   KriyaYogaRoute: KriyaYogaRoute,
   LibrosRoute: LibrosRoute,
-  LinajeRoute: LinajeRoute,
   NoticiasRoute: NoticiasRoute,
-  ProgramasRoute: ProgramasRoute,
   RaghabanandaRoute: RaghabanandaRoute,
 }
 export const routeTree = rootRouteImport
