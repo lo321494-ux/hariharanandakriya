@@ -38,11 +38,7 @@ export function PageHero({
   children?: ReactNode;
 }) {
   return (
-    <section className="relative overflow-hidden bg-ink text-ink-foreground">
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -right-24 -top-24 h-80 w-80 rounded-full bg-primary/25 blur-3xl"
-      />
+    <section className="page-hero text-ink-foreground">
       <div className="section-x relative py-20 md:py-28">
         <p className="text-xs uppercase tracking-[0.3em] text-primary">{eyebrow}</p>
         <h1 className="mt-5 max-w-3xl text-balance-title text-4xl leading-[1.1] md:text-6xl">

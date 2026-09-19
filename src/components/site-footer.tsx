@@ -1,11 +1,14 @@
 import { Link } from "@tanstack/react-router";
-import { Mail, MapPin, Phone } from "lucide-react";
+import { Facebook, Mail, MapPin, MessageCircle, Phone } from "lucide-react";
+import logo from "@/assets/logo.png.asset.json";
 
 export function SiteFooter() {
   return (
-    <footer className="mt-24 bg-ink text-ink-foreground">
+    <footer className="relative z-10 mt-24 overflow-hidden bg-ink text-ink-foreground">
+      <div className="footer-radiance" aria-hidden="true" />
       <div className="section-x grid gap-12 py-16 md:grid-cols-3">
-        <div>
+        <div className="relative">
+          <img src={logo.url} alt="" className="mb-5 h-16 w-auto brightness-0 invert opacity-90" />
           <p className="font-display text-2xl">Fundación Hariharananda Kriya Yoga</p>
           <p className="mt-4 max-w-sm text-sm leading-relaxed text-ink-foreground/70">
             Entidad sin ánimo de lucro, apolítica y sin sectarismos, dedicada a diseminar
@@ -49,22 +52,22 @@ export function SiteFooter() {
               <span>Envigado, Antioquia — Colombia</span>
             </li>
           </ul>
-          <div className="mt-5 flex gap-4 text-sm">
+           <div className="mt-6 flex gap-3 text-sm">
             <a
               href="https://www.facebook.com/pg/HariharanandaKriyaYoga/"
               target="_blank"
               rel="noreferrer"
-              className="hover:text-primary"
+              className="flex items-center gap-2 rounded-full border border-ink-foreground/15 px-4 py-2 transition-colors hover:border-primary hover:text-primary"
             >
-              Facebook
+              <Facebook className="h-4 w-4" /> Facebook
             </a>
             <a
               href="http://raghabananda.blogspot.com/"
               target="_blank"
               rel="noreferrer"
-              className="hover:text-primary"
+              className="flex items-center gap-2 rounded-full border border-ink-foreground/15 px-4 py-2 transition-colors hover:border-primary hover:text-primary"
             >
-              Blog Raghabananda
+              <MessageCircle className="h-4 w-4" /> Blog Raghabananda
             </a>
           </div>
         </div>
