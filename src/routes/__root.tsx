@@ -14,7 +14,6 @@ import { reportLovableError } from "../lib/lovable-error-reporting";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { Toaster } from "@/components/ui/sonner";
-import { AtmosphericBackdrop } from "@/components/atmospheric-backdrop";
 import { IntroSplash } from "@/components/intro-splash";
 import { Button } from "@/components/ui/button";
 
@@ -142,7 +141,6 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       <div className="flex min-h-screen flex-col bg-background">
-        <AtmosphericBackdrop />
         <IntroSplash />
         <SiteHeader />
         <main className="relative z-10 flex-1">
