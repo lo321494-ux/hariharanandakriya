@@ -480,7 +480,7 @@ main img.rounded-lg:hover {
 @media (max-width: 767px) {
   .section-x { padding-inline: 1rem; }
   main > div.section-x { padding-top: 3rem; padding-bottom: 3rem; }
-  main > div.section-x:not(.home-page)::before { top: 1rem; width: 38rem; height: 14rem; opacity: 0.62; }
+  main > div.section-x:not(.home-page)::before { top: 1rem; width: calc(100% - 2rem); height: 14rem; opacity: 0.62; }
   .book-secondary { gap: 0.65rem; margin-top: 2.75rem; }
   .book-object--lifted { transform: perspective(900px) rotateY(3deg) translateY(0.85rem); }
   .intro-halo { width: min(76vw, 23rem); }
