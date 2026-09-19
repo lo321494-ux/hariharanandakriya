@@ -255,7 +255,7 @@
 
 .intro-halo {
   position: absolute;
-  width: min(70vw, 36rem);
+  width: min(60vw, 32rem);
   aspect-ratio: 1;
   border: 1px solid oklch(0.8 0.12 78 / 0.22);
   border-radius: var(--radius-lg);
@@ -483,7 +483,7 @@ main img.rounded-lg:hover {
   main > div.section-x:not(.home-page)::before { top: 1rem; width: calc(100% - 2rem); height: 14rem; opacity: 0.62; }
   .book-secondary { gap: 0.65rem; margin-top: 2.75rem; }
   .book-object--lifted { transform: perspective(900px) rotateY(3deg) translateY(0.85rem); }
-  .intro-halo { width: min(76vw, 23rem); }
+  .intro-halo { width: min(70vw, 21rem); }
 }
 
 @media (prefers-reduced-motion: reduce) {
