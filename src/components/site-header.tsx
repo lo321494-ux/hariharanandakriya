@@ -29,18 +29,12 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 border-b border-gold/25 bg-background/95 shadow-[0_12px_30px_-24px_var(--color-foreground)] backdrop-blur-2xl">
       <div className="section-x flex h-[4.5rem] items-center justify-between gap-3 md:h-24">
-        <Link to="/" className="group flex min-w-0 items-center gap-3" onClick={close}>
+        <Link to="/" className="group flex min-w-0 items-center" onClick={close} aria-label="Fundación Hariharananda Kriya Yoga — Inicio">
           <img
             src={logo.url}
             alt="Fundación Hariharananda Kriya Yoga"
             className="h-12 w-auto drop-shadow-lg transition-transform duration-500 group-hover:rotate-3 group-hover:scale-110 md:h-16"
           />
-          <span className="hidden whitespace-nowrap font-display text-base leading-tight text-foreground sm:block md:text-lg">
-            Fundación Hariharananda
-            <span className="block text-[0.65rem] uppercase tracking-[0.28em] text-muted-foreground">
-              Kriya Yoga · FHKY
-            </span>
-          </span>
         </Link>
 
         <nav className="hidden items-center gap-4 xl:flex">

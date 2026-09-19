@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import parampara from "@/assets/parampara.jpg.asset.json";
+import maestroLinaje from "@/assets/maestro-linaje-bata-blanca.jpeg.asset.json";
 import liaGuru from "@/assets/lia-guru.jpg.asset.json";
 import foto2 from "@/assets/foto2.jpg.asset.json";
 import { ArrowRight, BookOpen, FileText } from "lucide-react";
@@ -20,8 +21,14 @@ export const Route = createFileRoute("/")({
         content:
           "El Kriya Yoga es el método más apropiado para el hombre del siglo XXI. Cualquier persona mayor de 12 años puede recibir iniciación.",
       },
-      { property: "og:image", content: parampara.url },
-      { name: "twitter:image", content: parampara.url },
+      {
+        property: "og:image",
+        content: `https://hariharanandakriya.lovable.app${maestroLinaje.url}`,
+      },
+      {
+        name: "twitter:image",
+        content: `https://hariharanandakriya.lovable.app${maestroLinaje.url}`,
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -35,10 +42,8 @@ function Inicio() {
       <section className="home-hero">
         <div className="home-hero__inner section-x">
           <div className="home-hero__copy">
-            <p className="home-foundation-name">Fundación Hariharananda Kriya Yoga</p>
             <span className="home-hero__rule" aria-hidden="true" />
-            <h1 className="text-balance-title">Kriya Yoga</h1>
-            <p className="home-hero__subtitle">Un camino para todos</p>
+            <h1 className="text-balance-title">Un camino para todos</h1>
             <p className="home-hero__lead">
               El Kriya Yoga es el método más apropiado para el hombre del siglo XXI.
             </p>
@@ -51,8 +56,13 @@ function Inicio() {
               </Button>
             </div>
           </div>
-          <figure className="lineage-portrait">
-            <img src={parampara.url} alt="Parampara: linaje de maestros de Kriya Yoga" />
+          <figure className="lineage-portrait" aria-label="El linaje">
+            <span className="lineage-portrait__plane lineage-portrait__plane--one" aria-hidden="true" />
+            <span className="lineage-portrait__plane lineage-portrait__plane--two" aria-hidden="true" />
+            <div className="lineage-portrait__frame">
+              <img src={maestroLinaje.url} alt="Maestro del linaje de Kriya Yoga con bata blanca" />
+            </div>
+            <figcaption>El linaje</figcaption>
           </figure>
         </div>
       </section>
