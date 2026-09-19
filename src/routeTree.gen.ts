@@ -10,33 +10,92 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ContactoRouteImport } from './routes/contacto'
+import { Route as FundacionRouteImport } from './routes/fundacion'
+import { Route as KriyaYogaRouteImport } from './routes/kriya-yoga'
+import { Route as LinajeRouteImport } from './routes/linaje'
+import { Route as ProgramasRouteImport } from './routes/programas'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ContactoRoute = ContactoRouteImport.update({
+  id: '/contacto',
+  path: '/contacto',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FundacionRoute = FundacionRouteImport.update({
+  id: '/fundacion',
+  path: '/fundacion',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const KriyaYogaRoute = KriyaYogaRouteImport.update({
+  id: '/kriya-yoga',
+  path: '/kriya-yoga',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LinajeRoute = LinajeRouteImport.update({
+  id: '/linaje',
+  path: '/linaje',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProgramasRoute = ProgramasRouteImport.update({
+  id: '/programas',
+  path: '/programas',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/contacto': typeof ContactoRoute
+  '/fundacion': typeof FundacionRoute
+  '/kriya-yoga': typeof KriyaYogaRoute
+  '/linaje': typeof LinajeRoute
+  '/programas': typeof ProgramasRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/contacto': typeof ContactoRoute
+  '/fundacion': typeof FundacionRoute
+  '/kriya-yoga': typeof KriyaYogaRoute
+  '/linaje': typeof LinajeRoute
+  '/programas': typeof ProgramasRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/contacto': typeof ContactoRoute
+  '/fundacion': typeof FundacionRoute
+  '/kriya-yoga': typeof KriyaYogaRoute
+  '/linaje': typeof LinajeRoute
+  '/programas': typeof ProgramasRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    '/' | '/contacto' | '/fundacion' | '/kriya-yoga' | '/linaje' | '/programas'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    '/' | '/contacto' | '/fundacion' | '/kriya-yoga' | '/linaje' | '/programas'
+  id:
+    | '__root__'
+    | '/'
+    | '/contacto'
+    | '/fundacion'
+    | '/kriya-yoga'
+    | '/linaje'
+    | '/programas'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ContactoRoute: typeof ContactoRoute
+  FundacionRoute: typeof FundacionRoute
+  KriyaYogaRoute: typeof KriyaYogaRoute
+  LinajeRoute: typeof LinajeRoute
+  ProgramasRoute: typeof ProgramasRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +107,51 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/contacto': {
+      id: '/contacto'
+      path: '/contacto'
+      fullPath: '/contacto'
+      preLoaderRoute: typeof ContactoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/fundacion': {
+      id: '/fundacion'
+      path: '/fundacion'
+      fullPath: '/fundacion'
+      preLoaderRoute: typeof FundacionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/kriya-yoga': {
+      id: '/kriya-yoga'
+      path: '/kriya-yoga'
+      fullPath: '/kriya-yoga'
+      preLoaderRoute: typeof KriyaYogaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/linaje': {
+      id: '/linaje'
+      path: '/linaje'
+      fullPath: '/linaje'
+      preLoaderRoute: typeof LinajeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/programas': {
+      id: '/programas'
+      path: '/programas'
+      fullPath: '/programas'
+      preLoaderRoute: typeof ProgramasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ContactoRoute: ContactoRoute,
+  FundacionRoute: FundacionRoute,
+  KriyaYogaRoute: KriyaYogaRoute,
+  LinajeRoute: LinajeRoute,
+  ProgramasRoute: ProgramasRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
