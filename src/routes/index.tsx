@@ -2,7 +2,6 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import parampara from "@/assets/parampara.jpg.asset.json";
 import maestroLinaje from "@/assets/maestro-linaje-bata-blanca.jpeg.asset.json";
 import liaGuru from "@/assets/lia-guru.jpg.asset.json";
-import foto2 from "@/assets/foto2.jpg.asset.json";
 import { ArrowRight, BookOpen, FileText } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -43,7 +42,11 @@ function Inicio() {
         <div className="home-hero__inner section-x">
           <div className="home-hero__copy">
             <span className="home-hero__rule" aria-hidden="true" />
-            <h1 className="text-balance-title">Un camino para todos</h1>
+            <h1 className="text-balance-title">
+              <span>Fundación</span>
+              Hariharananda Kriya Yoga
+            </h1>
+            <p className="home-hero__subtitle">Un camino para todos</p>
             <p className="home-hero__lead">
               El Kriya Yoga es el método más apropiado para el hombre del siglo XXI.
             </p>
@@ -138,14 +141,6 @@ function Inicio() {
             Practique KRIYA YOGA —sin temor o inseguridad— y encontrará todo lo que estaba
             buscando.
           </p>
-
-          <figure className="float-none my-8 md:float-right md:ml-8 md:w-2/5">
-            <img
-              src={foto2.url}
-              alt="Práctica de Kriya Yoga"
-               className="image-depth w-full"
-            />
-          </figure>
 
           <p>
             Uno de los muchos significados para Kriya es actividad o movimiento. Es el
