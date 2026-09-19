@@ -41,6 +41,8 @@ const portadas = [
   { src: esencia2.url, alt: "La Esencia de la Yoga, contraportada" },
 ];
 
+const portadaPrincipal = portadas[0];
+
 function Libros() {
   return (
     <div className="section-x py-16 md:py-24">
@@ -58,9 +60,11 @@ function Libros() {
       </p>
 
       <div className="book-display mx-auto mt-12 max-w-4xl">
-        <figure className="book-featured">
-          <img src={portadas[0].src} alt={portadas[0].alt} className="book-cover" />
-        </figure>
+        {portadaPrincipal ? (
+          <figure className="book-featured">
+            <img src={portadaPrincipal.src} alt={portadaPrincipal.alt} className="book-cover" />
+          </figure>
+        ) : null}
         <div className="book-secondary">
           {portadas.slice(1).map((p, index) => (
             <figure key={p.alt} className={index % 2 ? "book-object book-object--lifted" : "book-object"}>

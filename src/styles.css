@@ -473,8 +473,8 @@ main img.rounded-lg:hover {
 }
 
 @keyframes halo-pulse {
-  0%, 100% { transform: scale(0.96) rotate(0deg); opacity: 0.7; }
-  50% { transform: scale(1.04) rotate(5deg); opacity: 1; }
+  0%, 100% { opacity: 0.58; }
+  50% { opacity: 0.92; }
 }
 
 @media (max-width: 767px) {
@@ -487,6 +487,5 @@ main img.rounded-lg:hover {
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
-  .atmospheric-scene { display: none; }
 }
 
