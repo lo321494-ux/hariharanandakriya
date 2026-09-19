@@ -7,6 +7,6 @@
 - [x] Usar la nueva fotografía del maestro como imagen principal, con nitidez y profundidad.
 - [x] Simplificar la apertura para evitar repeticiones y hacer la navegación más intuitiva.
 - [x] Incorporar movimiento tridimensional sutil y verificar errores en celular y computador.
-- [ ] Hacer visible el nombre completo de la Fundación en la apertura sin repetir Kriya Yoga.
-- [ ] Retirar la cuarta fotografía de la página principal sin eliminar su texto.
+- [x] Hacer visible el nombre completo de la Fundación en la apertura sin repetir Kriya Yoga.
+- [x] Retirar la cuarta fotografía de la página principal sin eliminar su texto.
 - [ ] Verificar nuevamente la portada y el estado técnico.
