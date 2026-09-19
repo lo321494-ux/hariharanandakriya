@@ -27,7 +27,7 @@ export function SiteHeader() {
   const close = () => setOpen(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-aqua/20 bg-background/82 shadow-[0_10px_45px_oklch(0.22_0.07_240/0.09)] backdrop-blur-2xl">
+    <header className="sticky top-0 z-50 border-b border-aqua/20 bg-background/92 shadow-[0_5px_0_-3px_var(--color-aqua),0_14px_35px_-24px_var(--color-ink)] backdrop-blur-2xl">
       <div className="section-x flex h-[4.5rem] items-center justify-between gap-3 md:h-24">
         <Link to="/" className="group flex min-w-0 items-center gap-3" onClick={close}>
           <img

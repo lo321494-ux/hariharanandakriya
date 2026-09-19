@@ -41,10 +41,14 @@ const portadas = [
   { src: esencia2.url, alt: "La Esencia de la Yoga, contraportada" },
 ];
 
+const portadaPrincipal = portadas[0];
+
 function Libros() {
   return (
     <div className="section-x py-16 md:py-24">
-      <h1 className="text-center font-display text-4xl text-foreground md:text-5xl">LIBROS</h1>
+      <header className="editorial-heading mx-auto max-w-4xl">
+        <h1 className="font-display text-5xl text-foreground md:text-7xl">LIBROS</h1>
+      </header>
 
       <p className="mx-auto mt-6 max-w-2xl text-center text-base leading-relaxed text-muted-foreground">
         Para adquirir los libros <b className="text-foreground">Un Palpitar de Eternidad</b> y{" "}
@@ -55,18 +59,22 @@ function Libros() {
         .
       </p>
 
-      <div className="mx-auto mt-12 grid max-w-4xl gap-7 sm:grid-cols-2 lg:grid-cols-4 [perspective:1400px]">
-        {portadas.map((p) => (
-          <img
-            key={p.alt}
-            src={p.src}
-            alt={p.alt}
-            className="image-depth w-full transition-transform duration-500 odd:[transform:perspective(1100px)_rotateY(3deg)] even:[transform:perspective(1100px)_rotateY(-3deg)] hover:[transform:perspective(1100px)_rotateY(0deg)_translateY(-8px)]"
-          />
-        ))}
+      <div className="book-display mx-auto mt-12 max-w-4xl">
+        {portadaPrincipal ? (
+          <figure className="book-featured">
+            <img src={portadaPrincipal.src} alt={portadaPrincipal.alt} className="book-cover" />
+          </figure>
+        ) : null}
+        <div className="book-secondary">
+          {portadas.slice(1).map((p, index) => (
+            <figure key={p.alt} className={index % 2 ? "book-object book-object--lifted" : "book-object"}>
+              <img src={p.src} alt={p.alt} className="book-cover" />
+            </figure>
+          ))}
+        </div>
       </div>
 
-      <section className="mx-auto mt-16 max-w-2xl">
+      <section className="paper-panel mx-auto mt-16 max-w-2xl">
         <h2 className="font-display text-2xl text-primary">
           Seleccione el libro para leer
         </h2>
