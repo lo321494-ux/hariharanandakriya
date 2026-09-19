@@ -1,8 +1,7 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import parampara from "@/assets/parampara.jpg.asset.json";
 import liaGuru from "@/assets/lia-guru.jpg.asset.json";
 import foto2 from "@/assets/foto2.jpg.asset.json";
-import { Link } from "@tanstack/react-router";
 import { ArrowRight, BookOpen, FileText } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -23,6 +22,8 @@ export const Route = createFileRoute("/")({
       },
       { property: "og:image", content: parampara.url },
       { name: "twitter:image", content: parampara.url },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: Inicio,
@@ -75,7 +76,7 @@ function Inicio() {
       <article className="section-x py-16 md:py-24">
         <header className="text-center">
           <h1 className="font-display text-4xl text-foreground md:text-5xl">KRIYA YOGA</h1>
-            className="mt-3 text-balance-title font-display text-2xl italic text-primary">
+          <p className="mt-3 text-balance-title font-display text-2xl italic text-primary">
             UN CAMINO PARA TODOS
           </p>
         </header>

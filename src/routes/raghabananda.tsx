@@ -18,6 +18,8 @@ export const Route = createFileRoute("/raghabananda")({
       },
       { property: "og:image", content: babar1.url },
       { name: "twitter:image", content: babar1.url },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: Raghabananda,
@@ -25,7 +27,7 @@ export const Route = createFileRoute("/raghabananda")({
 
 function Raghabananda() {
   return (
-    <div className="section-x py-16">
+    <div className="section-x py-16 md:py-24">
       <h1 className="text-center font-display text-4xl text-foreground md:text-5xl">
         RAGHABANANDA
       </h1>
@@ -34,7 +36,7 @@ function Raghabananda() {
         <img
           src={babar1.url}
           alt="Brahmarshi Raghabananda"
-          className="w-full rounded-lg border-4 border-primary/40 p-1"
+          className="image-depth w-full"
         />
 
         <div className="space-y-5 text-base leading-relaxed text-muted-foreground">

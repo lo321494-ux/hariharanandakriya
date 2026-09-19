@@ -18,6 +18,8 @@ export const Route = createFileRoute("/hariharananda")({
       },
       { property: "og:image", content: hariharananda2.url },
       { name: "twitter:image", content: hariharananda2.url },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: Hariharananda,
@@ -34,22 +36,22 @@ const significados = [
 
 function Hariharananda() {
   return (
-    <div className="section-x py-16">
+    <div className="section-x py-16 md:py-24">
       <h1 className="text-center font-display text-4xl text-foreground md:text-5xl">
         HARIHARANANDA
       </h1>
 
-      <div className="mx-auto mt-10 grid max-w-5xl items-start gap-10 md:grid-cols-2">
+      <div className="mx-auto mt-12 grid max-w-5xl items-center gap-10 md:grid-cols-2">
         <img
           src={hariharananda2.url}
           alt="Paramahamsa Hariharananda"
-          className="w-full rounded-lg border-4 border-primary/40 p-1"
+          className="image-depth w-full"
         />
 
         <div>
           <dl className="space-y-3">
             {significados.map(([t, d]) => (
-              <div key={t} className="flex gap-3">
+              <div key={t} className="flex gap-3 border-b border-border/70 py-3">
                 <dt className="min-w-24 font-display text-lg text-primary">{t}</dt>
                 <dd className="text-base leading-relaxed text-muted-foreground">{d}</dd>
               </div>

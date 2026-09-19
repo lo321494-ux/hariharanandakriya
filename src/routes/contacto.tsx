@@ -21,6 +21,8 @@ export const Route = createFileRoute("/contacto")({
         content:
           "Escríbanos a fundacionhariharananda@gmail.com o llame al 317 429 3044.",
       },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary" },
     ],
   }),
   component: Contacto,

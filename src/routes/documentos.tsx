@@ -17,6 +17,8 @@ export const Route = createFileRoute("/documentos")({
         content:
           "Transparencia: estatutos, actas, estados financieros, informes de gestión y certificaciones de la FHKY.",
       },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary" },
     ],
   }),
   component: Documentos,
@@ -24,7 +26,7 @@ export const Route = createFileRoute("/documentos")({
 
 function Documentos() {
   return (
-    <div className="section-x py-16">
+    <div className="section-x py-16 md:py-24">
       <h1 className="text-center font-display text-4xl text-foreground md:text-5xl">
         Documentos
       </h1>
@@ -36,7 +38,7 @@ function Documentos() {
         {documentos.map((grupo) => (
           <section key={grupo.year}>
             <h2 className="font-display text-2xl text-primary">AÑO {grupo.year}</h2>
-            <ul className="mt-4 divide-y divide-border rounded-lg border border-border bg-card">
+            <ul className="mt-4 divide-y divide-border rounded-lg border border-border/70 bg-card/80 backdrop-blur-xl">
               {grupo.items.map((doc) => (
                 <li key={grupo.year + doc.file}>
                   <a
