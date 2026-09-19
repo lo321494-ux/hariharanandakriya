@@ -27,7 +27,7 @@ export function SiteHeader() {
   const close = () => setOpen(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-aqua/20 bg-background/92 shadow-[0_5px_0_-3px_var(--color-aqua),0_14px_35px_-24px_var(--color-ink)] backdrop-blur-2xl">
+    <header className="sticky top-0 z-50 border-b border-gold/25 bg-background/95 shadow-[0_12px_30px_-24px_var(--color-foreground)] backdrop-blur-2xl">
       <div className="section-x flex h-[4.5rem] items-center justify-between gap-3 md:h-24">
         <Link to="/" className="group flex min-w-0 items-center gap-3" onClick={close}>
           <img
@@ -35,7 +35,7 @@ export function SiteHeader() {
             alt="Fundación Hariharananda Kriya Yoga"
             className="h-12 w-auto drop-shadow-lg transition-transform duration-500 group-hover:rotate-3 group-hover:scale-110 md:h-16"
           />
-          <span className="hidden font-display text-base leading-tight text-foreground sm:block md:text-lg">
+          <span className="hidden whitespace-nowrap font-display text-base leading-tight text-foreground sm:block md:text-lg">
             Fundación Hariharananda
             <span className="block text-[0.65rem] uppercase tracking-[0.28em] text-muted-foreground">
               Kriya Yoga · FHKY
@@ -104,14 +104,14 @@ export function SiteHeader() {
           type="button"
           aria-label="Abrir menú"
           onClick={() => setOpen((v) => !v)}
-          className="rounded-full border-aqua/40 bg-background/70 shadow-md xl:hidden"
+          className="rounded-full border-gold/40 bg-background/80 shadow-md xl:hidden"
         >
           {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
         </Button>
       </div>
 
       {open && (
-        <div className="border-t border-aqua/20 bg-background/95 shadow-2xl backdrop-blur-2xl xl:hidden">
+        <div className="border-t border-gold/25 bg-background/95 shadow-2xl backdrop-blur-2xl xl:hidden">
           <nav className="section-x grid max-h-[calc(100vh-4.5rem)] grid-cols-2 gap-1 overflow-y-auto py-5 sm:grid-cols-3">
             {[...nav, ...fhky].map((item) => (
               <Link

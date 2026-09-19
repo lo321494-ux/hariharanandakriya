@@ -32,43 +32,38 @@ export const Route = createFileRoute("/")({
 function Inicio() {
   return (
     <div className="home-page">
-      <section className="relative min-h-[calc(100svh-4.5rem)] overflow-hidden bg-ink text-ink-foreground md:min-h-[calc(100svh-6rem)]">
-        <img
-          src={parampara.url}
-          alt=""
-          className="absolute inset-0 h-full w-full object-cover opacity-50 mix-blend-luminosity"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-aqua/10 via-ink/55 to-ink" />
-        <div className="section-x relative flex min-h-[calc(100svh-4.5rem)] flex-col justify-end pb-16 pt-32 md:min-h-[calc(100svh-6rem)] md:pb-20">
-          <p className="text-xs uppercase tracking-[0.3em] text-gold">Fundación Hariharananda Kriya Yoga</p>
-          <h1 className="mt-5 max-w-4xl text-balance-title font-display text-5xl leading-[0.95] sm:text-6xl md:text-8xl">
-            Kriya Yoga
-          </h1>
-          <p className="mt-3 font-display text-2xl italic text-gold md:text-4xl">Un camino para todos</p>
-          <p className="mt-6 max-w-2xl text-base leading-relaxed text-ink-foreground/75 md:text-lg">
-            El Kriya Yoga es el método más apropiado para el hombre del siglo XXI.
-          </p>
-          <div className="mt-8 flex flex-wrap gap-3">
-            <Button asChild size="lg" className="rounded-full px-7 shadow-lg shadow-primary/30">
-              <Link to="/kriya-yoga">Conocer Kriya Yoga <ArrowRight /></Link>
-            </Button>
-            <Button asChild size="lg" variant="outline" className="rounded-full border-ink-foreground/25 bg-ink/25 text-ink-foreground backdrop-blur-md hover:bg-ink-foreground/10 hover:text-ink-foreground">
-              <Link to="/contacto">Contacto</Link>
-            </Button>
+      <section className="home-hero">
+        <div className="home-hero__inner section-x">
+          <div className="home-hero__copy">
+            <p className="home-foundation-name">Fundación Hariharananda Kriya Yoga</p>
+            <span className="home-hero__rule" aria-hidden="true" />
+            <h1 className="text-balance-title">Kriya Yoga</h1>
+            <p className="home-hero__subtitle">Un camino para todos</p>
+            <p className="home-hero__lead">
+              El Kriya Yoga es el método más apropiado para el hombre del siglo XXI.
+            </p>
+            <div className="home-hero__actions">
+              <Button asChild size="lg" className="rounded-full px-7">
+                <Link to="/kriya-yoga">Conocer Kriya Yoga <ArrowRight /></Link>
+              </Button>
+              <Button asChild size="lg" variant="outline" className="rounded-full border-gold/40 bg-background/70">
+                <Link to="/contacto">Contacto</Link>
+              </Button>
+            </div>
           </div>
-          <div className="mt-12 flex items-center gap-4 text-xs uppercase tracking-[0.22em] text-ink-foreground/50">
-            <span className="h-px w-12 bg-gold/60" /> Meditación espontánea
-          </div>
+          <figure className="lineage-portrait">
+            <img src={parampara.url} alt="Parampara: linaje de maestros de Kriya Yoga" />
+          </figure>
         </div>
       </section>
 
-      <section className="border-b border-aqua/20 bg-gradient-to-r from-sand/90 via-aqua-soft/40 to-sand/90 backdrop-blur-sm">
+      <section className="lineage-band">
         <div className="section-x py-10 text-center md:py-14">
           <p className="text-xs uppercase tracking-[0.3em] text-primary">El linaje</p>
           <img
             src={parampara.url}
             alt="Parampara: linaje de maestros de Kriya Yoga"
-            className="image-depth mt-6 w-full"
+            className="lineage-full mt-6 w-full"
           />
         </div>
       </section>
