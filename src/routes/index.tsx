@@ -36,9 +36,10 @@ function Inicio() {
         <img
           src={parampara.url}
           alt=""
-          className="absolute inset-0 h-full w-full object-cover opacity-35 mix-blend-luminosity"
+          className="absolute inset-0 h-full w-full object-cover opacity-50 mix-blend-luminosity"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-ink/20 via-ink/65 to-ink" />
+        <div className="absolute inset-0 bg-gradient-to-b from-aqua/10 via-ink/55 to-ink" />
+        <div className="absolute -right-24 top-20 h-[38rem] w-[38rem] rounded-full border border-gold/30 shadow-[0_0_120px_oklch(0.72_0.15_181/0.22),inset_0_0_100px_oklch(0.8_0.15_79/0.12)]" aria-hidden="true" />
         <div className="section-x relative flex min-h-[calc(100svh-4.5rem)] flex-col justify-end pb-16 pt-32 md:min-h-[calc(100svh-6rem)] md:pb-20">
           <p className="text-xs uppercase tracking-[0.3em] text-gold">Fundación Hariharananda Kriya Yoga</p>
           <h1 className="mt-5 max-w-4xl text-balance-title font-display text-5xl leading-[0.95] sm:text-6xl md:text-8xl">
@@ -62,7 +63,7 @@ function Inicio() {
         </div>
       </section>
 
-      <section className="border-b border-border/70 bg-sand/80 backdrop-blur-sm">
+      <section className="border-b border-aqua/20 bg-gradient-to-r from-sand/90 via-aqua-soft/40 to-sand/90 backdrop-blur-sm">
         <div className="section-x py-10 text-center md:py-14">
           <p className="text-xs uppercase tracking-[0.3em] text-primary">El linaje</p>
           <img

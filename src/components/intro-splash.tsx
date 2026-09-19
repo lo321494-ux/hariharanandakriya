@@ -24,6 +24,7 @@ export function IntroSplash() {
   return (
     <div className={`intro-splash ${leaving ? "intro-splash--leaving" : ""}`} role="dialog" aria-label="Fundación Hariharananda Kriya Yoga">
       <div className="intro-halo" aria-hidden="true" />
+      <div className="absolute h-[min(88vw,44rem)] w-[min(88vw,44rem)] animate-[spin_22s_linear_infinite] rounded-full border border-aqua/20" aria-hidden="true" />
       <div className="intro-mark">
         <img src={logo.url} alt="Fundación Hariharananda Kriya Yoga" />
         <p>Fundación Hariharananda</p>

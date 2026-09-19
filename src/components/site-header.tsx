@@ -27,13 +27,13 @@ export function SiteHeader() {
   const close = () => setOpen(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-border/60 bg-background/80 shadow-[0_10px_40px_oklch(0.16_0.04_275/0.07)] backdrop-blur-xl">
+    <header className="sticky top-0 z-50 border-b border-aqua/20 bg-background/82 shadow-[0_10px_45px_oklch(0.22_0.07_240/0.09)] backdrop-blur-2xl">
       <div className="section-x flex h-[4.5rem] items-center justify-between gap-3 md:h-24">
         <Link to="/" className="group flex min-w-0 items-center gap-3" onClick={close}>
           <img
             src={logo.url}
             alt="Fundación Hariharananda Kriya Yoga"
-            className="h-12 w-auto drop-shadow-md transition-transform duration-500 group-hover:rotate-3 group-hover:scale-105 md:h-16"
+            className="h-12 w-auto drop-shadow-lg transition-transform duration-500 group-hover:rotate-3 group-hover:scale-110 md:h-16"
           />
           <span className="hidden font-display text-base leading-tight text-foreground sm:block md:text-lg">
             Fundación Hariharananda
@@ -104,14 +104,14 @@ export function SiteHeader() {
           type="button"
           aria-label="Abrir menú"
           onClick={() => setOpen((v) => !v)}
-          className="rounded-full xl:hidden"
+          className="rounded-full border-aqua/40 bg-background/70 shadow-md xl:hidden"
         >
           {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
         </Button>
       </div>
 
       {open && (
-        <div className="border-t border-border bg-background/95 shadow-xl backdrop-blur-xl xl:hidden">
+        <div className="border-t border-aqua/20 bg-background/95 shadow-2xl backdrop-blur-2xl xl:hidden">
           <nav className="section-x grid max-h-[calc(100vh-4.5rem)] grid-cols-2 gap-1 overflow-y-auto py-5 sm:grid-cols-3">
             {[...nav, ...fhky].map((item) => (
               <Link

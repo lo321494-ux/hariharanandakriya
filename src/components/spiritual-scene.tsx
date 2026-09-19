@@ -26,32 +26,36 @@ function SacredForm() {
 
   return (
     <group ref={group} rotation={[0.2, 0, 0.18]}>
-      <Float speed={0.7} rotationIntensity={0.18} floatIntensity={0.35}>
-        {[1.55, 2.2, 2.85].map((radius, index) => (
+      <Float speed={0.8} rotationIntensity={0.22} floatIntensity={0.42}>
+        {[1.4, 1.9, 2.45, 3].map((radius, index) => (
           <mesh key={radius} rotation={[Math.PI / 2 + index * 0.38, index * 0.7, 0]}>
-            <torusGeometry args={[radius, 0.018 + index * 0.006, 8, 96]} />
+            <torusGeometry args={[radius, 0.024 + index * 0.007, 10, 112]} />
             <meshStandardMaterial
-              color={index === 1 ? "#dfb369" : "#f4d99d"}
-              emissive="#d79b43"
-              emissiveIntensity={0.65}
-              metalness={0.55}
-              roughness={0.28}
+              color={index % 2 === 0 ? "#57d6c4" : "#ffd66b"}
+              emissive={index % 2 === 0 ? "#219b9b" : "#e7a832"}
+              emissiveIntensity={0.9}
+              metalness={0.7}
+              roughness={0.2}
               transparent
-              opacity={0.72}
+              opacity={0.82}
             />
           </mesh>
         ))}
+        <mesh rotation={[0, 0, Math.PI / 4]}>
+          <octahedronGeometry args={[1.18, 0]} />
+          <meshStandardMaterial color="#63d6ca" emissive="#168f93" emissiveIntensity={0.65} wireframe transparent opacity={0.52} />
+        </mesh>
         <mesh>
           <icosahedronGeometry args={[0.72, 3]} />
           <meshPhysicalMaterial
             color="#f6dfaa"
             emissive="#dba856"
             emissiveIntensity={0.5}
-            transmission={0.45}
+            transmission={0.62}
             thickness={1.4}
             roughness={0.2}
             transparent
-            opacity={0.8}
+            opacity={0.88}
           />
         </mesh>
       </Float>
@@ -59,7 +63,7 @@ function SacredForm() {
         <bufferGeometry>
           <bufferAttribute attach="attributes-position" args={[particles, 3]} />
         </bufferGeometry>
-        <pointsMaterial color="#f4d99d" size={0.035} transparent opacity={0.58} />
+        <pointsMaterial color="#6ee7d8" size={0.045} transparent opacity={0.75} />
       </points>
     </group>
   );
@@ -72,12 +76,13 @@ export default function SpiritualScene() {
       dpr={[1, 1.5]}
       gl={{ antialias: true, alpha: true, powerPreference: "low-power" }}
     >
-      <ambientLight intensity={0.7} />
-      <pointLight position={[2, 3, 5]} intensity={10} color="#eebd66" />
+      <ambientLight intensity={0.85} />
+      <pointLight position={[2, 3, 5]} intensity={13} color="#f7c95e" />
+      <pointLight position={[-3, -1, 4]} intensity={9} color="#45cbbb" />
       <SacredForm />
       <Environment>
         <Lightformer intensity={2} position={[0, 5, 2]} scale={[8, 8, 1]} />
-        <Lightformer intensity={1} color="#eebd66" position={[-5, 1, 0]} rotation-y={Math.PI / 2} scale={[12, 2, 1]} />
+        <Lightformer intensity={1.2} color="#55d7c4" position={[-5, 1, 0]} rotation-y={Math.PI / 2} scale={[12, 2, 1]} />
       </Environment>
     </Canvas>
   );
