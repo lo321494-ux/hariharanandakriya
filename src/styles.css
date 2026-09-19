@@ -393,8 +393,8 @@ main img.rounded-lg:hover {
 .footer-radiance {
   position: absolute;
   top: -18rem;
-  right: -8rem;
-  width: 35rem;
+  right: 0;
+  width: min(35rem, 100%);
   height: 35rem;
   border: 1px solid oklch(0.75 0.13 75 / 0.2);
   border-radius: 50%;
@@ -483,6 +483,7 @@ main img.rounded-lg:hover {
   main > div.section-x:not(.home-page)::before { top: 1rem; width: 38rem; height: 14rem; opacity: 0.62; }
   .book-secondary { gap: 0.65rem; margin-top: 2.75rem; }
   .book-object--lifted { transform: perspective(900px) rotateY(3deg) translateY(0.85rem); }
+  .intro-halo { width: min(76vw, 23rem); }
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -6,7 +6,7 @@ export function SiteFooter() {
   return (
     <footer className="relative z-10 mt-24 overflow-hidden border-t border-aqua/25 bg-gradient-to-br from-ink via-ink to-aqua/25 text-ink-foreground shadow-[0_-20px_70px_oklch(0.55_0.12_181/0.12)]">
       <div className="footer-radiance" aria-hidden="true" />
-      <div className="section-x grid gap-12 py-16 md:grid-cols-3">
+      <div className="section-x grid gap-12 py-16 lg:grid-cols-3">
         <div className="relative">
           <img src={logo.url} alt="" className="mb-5 h-16 w-auto brightness-0 invert opacity-90" />
           <p className="font-display text-2xl">Fundación Hariharananda Kriya Yoga</p>
@@ -39,7 +39,7 @@ export function SiteFooter() {
           <ul className="mt-4 space-y-4 text-sm text-ink-foreground/80">
             <li className="flex gap-3">
               <Mail className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
-              <a href="mailto:fundacionhariharananda@gmail.com" className="hover:text-primary">
+              <a href="mailto:fundacionhariharananda@gmail.com" className="break-all hover:text-primary">
                 fundacionhariharananda@gmail.com
               </a>
             </li>
@@ -52,7 +52,7 @@ export function SiteFooter() {
               <span>Envigado, Antioquia — Colombia</span>
             </li>
           </ul>
-           <div className="mt-6 flex gap-3 text-sm">
+           <div className="mt-6 flex flex-wrap gap-3 text-sm">
             <a
               href="https://www.facebook.com/pg/HariharanandaKriyaYoga/"
               target="_blank"
