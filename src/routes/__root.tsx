@@ -85,13 +85,15 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         name: "description",
         content:
-          "Fundación Hariharananda Kriya Yoga (FHKY): meditación, enseñanza y servicio en el linaje de Paramahamsa Hariharananda.",
+          "Fundación Hariharananda Kriya Yoga (FHKY): enseñanza y práctica de Kriya Yoga en el linaje de Paramahamsa Hariharananda y Brahmarshi Raghabananda. Envigado, Antioquia, Colombia.",
       },
+      { property: "og:site_name", content: "Fundación Hariharananda Kriya Yoga" },
+      { property: "og:locale", content: "es_CO" },
       { property: "og:title", content: "Fundación Hariharananda Kriya Yoga" },
       {
         property: "og:description",
         content:
-          "Meditación, enseñanza y servicio en el linaje de Paramahamsa Hariharananda.",
+          "Enseñanza y práctica de Kriya Yoga en el linaje de Paramahamsa Hariharananda y Brahmarshi Raghabananda.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -107,7 +109,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         rel: "stylesheet",
         href: "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500;600&display=swap",
       },
-      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+      { rel: "icon", type: "image/png", href: "/favicon.png" },
     ],
   }),
 

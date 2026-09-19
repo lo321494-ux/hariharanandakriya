@@ -1,172 +1,149 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight } from "lucide-react";
-
-import { PageHero, SectionHeading } from "@/components/section";
-import practicaImg from "@/assets/practica.jpg";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
+import { createFileRoute } from "@tanstack/react-router";
+import kriyaBaba from "@/assets/kriya-baba.png.asset.json";
 
 export const Route = createFileRoute("/kriya-yoga")({
   head: () => ({
     meta: [
-      { title: "¿Qué es el Kriya Yoga? | Fundación Hariharananda Kriya Yoga" },
+      { title: "Kriya Yoga | Fundación Hariharananda Kriya Yoga" },
       {
         name: "description",
         content:
-          "El Kriya Yoga es una ciencia ancestral de meditación basada en la respiración consciente, transmitida de maestro a discípulo en el linaje de Paramahamsa Hariharananda.",
+          "Enseñanzas sobre Kriya Yoga de Paramahamsa Hariharananda y Rajarshi Raghabananda: sushumna, kutastha, pranayama, kundalini y consciencia cósmica.",
       },
-      { property: "og:title", content: "¿Qué es el Kriya Yoga?" },
+      { property: "og:title", content: "Kriya Yoga | FHKY" },
       {
         property: "og:description",
         content:
-          "Una ciencia ancestral de meditación basada en la respiración consciente y la transmisión viva del linaje.",
+          "El Kriya Yoga es una ciencia de la respiración correcta. Enseñanzas de los maestros del linaje.",
       },
+      { property: "og:image", content: kriyaBaba.url },
+      { name: "twitter:image", content: kriyaBaba.url },
     ],
   }),
   component: KriyaYoga,
 });
 
-const etapas = [
+const ensenanzas: { texto: string; fuente?: string }[] = [
   {
-    n: "01",
-    t: "Purificación",
-    d: "La respiración consciente calma el sistema nervioso y purifica cuerpo y mente de la agitación acumulada.",
+    texto:
+      "El bote de la vida debe estar anclado en la Consciencia Cósmica. Si se ancla el bote al fondo, se puede remar toda la noche, pero ¿adónde llegará? Sri Yukteswar dijo que muchos practican Kriya Yoga así, sin saber el propósito verdadero de la técnica. Se debe primero levar el ancla y buscar al capitán. El bote del cuerpo no puede navegar con su solo poder. Todos sus movimientos vienen del Todopoderoso. Siempre debe anclarse en el Todopoderoso.",
+    fuente: "P. Hariharananda",
   },
   {
-    n: "02",
-    t: "Concentración",
-    d: "La atención se recoge en los centros sutiles de la columna, conquistando gradualmente la dispersión.",
+    texto:
+      "Yogiraj elucidó que “la realización se da a través de Kutastha”. Logrando la permanencia en Kutastha, el yogui adquiere el conocimiento verdadero. Ya que es semejante al cielo, se le conoce como la Caverna de la Unión con el Vacío Absoluto. Si se logra la permanencia en esta Caverna, el yogui adquiere conocimiento profundo de las esencias de la religión.",
+    fuente: "Del libro Puran Purusha",
   },
   {
-    n: "03",
-    t: "Percepción",
-    d: "Se perciben las tres cualidades divinas: luz, vibración y sonido, en la meditación y en la vida diaria.",
+    texto:
+      "“Mientras se practica este Pranayama, emana un sonido extremadamente melifluo. Solamente este, es el que se conoce como el sonido Pranava. Si se detalla cuidadosamente la flauta que Krishna toca, se observan 6 agujeros. Para explicar el dulce sonido producto de este Pranayama a lo largo del camino de los 6 chakras, se representa el símbolo de Bhagavan Krishna sosteniendo la flauta en sus manos. Esta no es una flauta física. Esta flauta es el símbolo del Pranayama interno a lo largo del cordón espinal a través del medio de los 6 chakras”.",
+    fuente:
+      "Ashoke Kumar Chatterjee en Who Is This Shama Churn (nieto de Lahiri Mahasaya, autor de Puran Purusha)",
   },
   {
-    n: "04",
-    t: "Realización",
-    d: "El ego, las emociones y los apegos se disuelven en la certeza de que la esencia de la vida es pura y pacífica.",
-  },
-];
-
-const faqs = [
-  {
-    q: "¿Necesito tener experiencia previa en yoga o meditación?",
-    a: "No. El Kriya Yoga se enseña desde el comienzo, paso a paso. Muchas personas llegan sin ninguna práctica previa y reciben el acompañamiento necesario.",
+    texto:
+      "“El poder serpenteante (kundalini) es el asiento de la fuerza de vida en la sushumna. Los practicantes de Kriya Yoga experimentan el poder serpenteante (kundalini shakti) como una luz dorada extremadamente brillante. El practicante la experimenta como fuego en el centro muladhara”.",
+    fuente: "Rajarshi Raghabananda en The Essence of Kriya Yoga",
   },
   {
-    q: "¿Debo pertenecer a alguna religión?",
-    a: "No. El Kriya Yoga es anterior a toda religión y no es sectario. Personas de toda tradición o de ninguna lo practican sin conflicto con sus creencias.",
+    texto:
+      "“El Kriya Yoga es una ciencia de la respiración correcta. Al inhalar de forma apropiada, cuando la calma desciende, el devoto permanece en pleno gozo, luz divina y la vibración divina”.",
+    fuente: "Paramahansa Hariharananda",
   },
   {
-    q: "¿Cuánto tiempo requiere la práctica diaria?",
-    a: "La práctica inicial puede realizarse en aproximadamente media hora al día, mañana y noche, y se profundiza con el tiempo según la constancia de cada quien.",
+    texto:
+      "“Un día el Poder Cósmico ya no respirará por tu nariz y tendrás que dejar inmediatamente todas las propiedades y la prosperidad, el ego y la vanidad, la fortuna y la familia, los amigos y los conocidos, todo (...). Ofrece todo a la Consciencia Cósmica y a los maestros”.",
+    fuente: "Paramahansa Hariharananda",
   },
   {
-    q: "¿Por qué las técnicas no se enseñan por escrito?",
-    a: "Porque forman parte de una tradición oral. La iniciación es una transmisión personal entre el instructor autorizado y el discípulo, y así se ha preservado por generaciones.",
+    texto:
+      "“Tomando este cuerpo como nuestro laboratorio, podemos realizar una experimentación sistemática y nos podemos dar cuenta del profundo significado y eficacia del Kriya Yoga”.",
+    fuente: "Baba Hariharananda",
   },
   {
-    q: "¿Tiene algún costo?",
-    a: "La Fundación es una entidad sin ánimo de lucro. Los programas se sostienen con aportes voluntarios; nadie queda fuera por razones económicas.",
+    texto:
+      "En el yogui, la fuerza de vida se mueve en la sushumna. Pero en el hombre ordinario, la sushumna está cerrada. El prana fluye por ida y pingala. La regulación de la respiración en ida y pingala provoca estabilidad en la sushumna. Cuando inhalamos, el nervio ida se activa. Cuando exhalamos, el nervio pingala se activa. El estado de equilibrio de la respiración en la ida y pingala está en la sushumna. Un yogui puede fácilmente mantenerse en la sushumna.",
+    fuente: "Rajarshi Raghabananda en The essence of Kriya Yoga",
+  },
+  {
+    texto:
+      "Superconsciencia y consciencia cósmica significan que el cuerpo y el alma se perciben como uno. Este es el so-ham, o estado de hamsa, que significa “Yo y Él (el alma) somos uno”; en otras palabras, el alma y la naturaleza del cuerpo son uno. En este estado, los yoguis sienten al ser humano en Dios y a Dios en el ser humano. Ellos constantemente disfrutan de gozo divino, dicha y paz. Ellos sienten al alma funcionando a través de sus cuerpos. Este es el real conocimiento de la yoga.",
+    fuente:
+      "El maestro Hariharananda en Life and Teachings of Paramahansa Hariharananda, escrito por algunos de sus discípulos",
+  },
+  {
+    texto:
+      "“El estado en el cual el practicante se libera del apego y alcanza la calma y un estado estable de Conciencia de Dios es llamado estado de shambhavi. La mente se funde en el alma profunda. La introversión de la mente es shambhavi mudra”.",
+    fuente: "Rajarshi Raghabananda en The Essence of Kriya Yoga (pág. 65)",
+  },
+  {
+    texto: "“La mente emerge de la energía vital, el punto de nacimiento de la mente es la respiración”.",
+    fuente: "Así dice Baba",
   },
 ];
 
 function KriyaYoga() {
   return (
-    <>
-      <PageHero
-        eyebrow="La enseñanza"
-        title="El Kriya Yoga: la ciencia del cultivo del alma"
-        intro="Un proceso científico y no sectario de práctica espiritual, enraizado en el Ashtanga Yoga del Yoga Sutra de Patáñjali, mediante el cual el alma individual se une con el Alma Suprema."
+    <div className="section-x py-16">
+      <h1 className="text-center font-display text-4xl text-foreground md:text-5xl">
+        KRIYA YOGA
+      </h1>
+
+      <img
+        src={kriyaBaba.url}
+        alt="Baba enseñando Kriya Yoga"
+        className="mx-auto mt-8 w-full max-w-md rounded-lg border-4 border-primary/40 p-1"
       />
 
-      <section className="section-x py-20 md:py-28">
-        <div className="grid gap-12 md:grid-cols-[1.1fr_0.9fr] md:items-start">
-          <div className="space-y-6 text-base leading-relaxed text-foreground/85">
-            <p className="font-display text-2xl leading-snug text-foreground md:text-3xl">
-              «Cada acción <em>kri</em> es realizada por <em>ya</em>, el alma que habita en
-              el interior.»
-            </p>
-            <p>
-              El Kriya Yoga es un camino de vida y de meditación ancestral que cultiva el
-              cuerpo, la mente, el intelecto y la conciencia del alma a través del control
-              de la respiración, la concentración y la postura. Introducido en Occidente
-              por Paramahamsa Yogananda y más tarde por Paramahamsa Hariharananda, nos
-              ayuda a percibir las tres cualidades divinas —luz, vibración y sonido— tanto
-              en la meditación como en el día a día.
-            </p>
-            <p>
-              El señor de los sentidos es la mente, y el señor de la mente es la
-              respiración. Por eso el Kriya Yoga se funda en el principio de la respiración
-              corta: cuando el aliento se vuelve calmo y silencioso, la mente se aquieta y
-              la percepción del alma se hace evidente.
-            </p>
-            <p>
-              Su práctica permite conquistar de forma gradual el ego, las emociones y los
-              apegos, hasta llegar a la realización de que la esencia de la vida es pura,
-              divina y pacífica. Es una disciplina espiritual universal que trasciende
-              todas las fronteras y divisiones culturales.
-            </p>
-          </div>
-          <div className="overflow-hidden rounded-3xl">
-            <img
-              src={practicaImg}
-              alt="Manos en mudra durante la meditación"
-              loading="lazy"
-              width={1280}
-              height={960}
-              className="h-full w-full object-cover"
-            />
-          </div>
+      <div className="mx-auto mt-12 max-w-3xl space-y-8">
+        {ensenanzas.map((e) => (
+          <blockquote
+            key={e.texto.slice(0, 40)}
+            className="border-l-4 border-primary/50 pl-5 text-base leading-relaxed text-muted-foreground"
+          >
+            <p>{e.texto}</p>
+            {e.fuente && (
+              <footer className="mt-2 text-sm tracking-wide text-primary">{e.fuente}</footer>
+            )}
+          </blockquote>
+        ))}
+      </div>
+
+      <section className="mx-auto mt-16 max-w-3xl rounded-lg border border-border bg-sand p-8">
+        <h2 className="font-display text-2xl text-primary">
+          Mi último consejo — Baba Raghabananda
+        </h2>
+        <p className="mt-2 text-sm text-muted-foreground">Sambalpur, 12 de febrero de 2016</p>
+        <div className="mt-5 space-y-4 text-base leading-relaxed text-muted-foreground">
+          <p>
+            Esta es la última recomendación que les doy, ya que no voy a estar mucho tiempo
+            en esta tierra. Este consejo es para todos. Yo no soy nadie para dar consejos. No
+            lo doy yo, lo da Hariharananda, a través de mi boca:
+          </p>
+          <p>
+            Si alguna vez tiene un problema de dinero, concéntrese en el medio del primer
+            centro, hasta que el problema se haya resuelto. Si tiene problemas de sexo,
+            concéntrese en el punto central del segundo chacra. Si tiene problemas
+            digestivos, concéntrese en el centro del tercer chacra. Si tiene problemas
+            emocionales, o padece alguna emoción negativa, mantenga su atención en el punto
+            medio del cuarto chacra. Si tiene una enfermedad de la garganta, o de la
+            tiroides, concéntrese en el medio del quinto chacra. Así mismo, si tiene
+            dificultades de comunicación. Si hay algún problema mental, mantenga la atención
+            en el centro de la pituitaria. Si tiene problemas que atañen diversos órganos, o
+            varios centros, mantenga su atención en la cima de la cabeza.
+          </p>
+          <p>
+            En el medio de cada chacra hay un fuerte, una fortaleza inexpugnable. En ese
+            punto central de equilibrio, somos invulnerables. Mantener la atención
+            concentrada ahí, llevará esa armonía a todos los órganos y a los reinos dominados
+            por ese chacra. Para eso, la concentración ahí deberá ser constante, durante la
+            práctica y durante todo el día, todos los días que sea necesario. El fuerte mayor
+            está en la fontanela.
+          </p>
         </div>
       </section>
 
-      <section className="bg-secondary/60">
-        <div className="section-x py-20 md:py-28">
-          <SectionHeading
-            eyebrow="El proceso"
-            title="Cuatro movimientos de una misma práctica"
-            intro="No son niveles que se superan y se dejan atrás, sino profundidades que se revelan con la constancia."
-            align="center"
-          />
-          <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {etapas.map((e) => (
-              <div key={e.n} className="rounded-2xl border border-border bg-card p-7">
-                <span className="font-display text-4xl text-primary/40">{e.n}</span>
-                <h3 className="mt-4 text-xl text-foreground">{e.t}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{e.d}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="section-x py-20 md:py-28">
-        <SectionHeading eyebrow="Preguntas frecuentes" title="Antes de comenzar" />
-        <Accordion type="single" collapsible className="mt-10 max-w-3xl">
-          {faqs.map((f) => (
-            <AccordionItem key={f.q} value={f.q}>
-              <AccordionTrigger className="text-left font-display text-lg">
-                {f.q}
-              </AccordionTrigger>
-              <AccordionContent className="text-sm leading-relaxed text-muted-foreground">
-                {f.a}
-              </AccordionContent>
-            </AccordionItem>
-          ))}
-        </Accordion>
-        <Link
-          to="/programas"
-          className="mt-12 inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3.5 text-sm font-medium text-primary-foreground transition-transform hover:-translate-y-0.5"
-        >
-          Ver programas e iniciación <ArrowRight className="h-4 w-4" />
-        </Link>
-      </section>
-    </>
+      <p className="mt-10 text-center font-display text-2xl text-foreground">¡Jai Gurú!</p>
+    </div>
   );
 }
