@@ -222,6 +222,11 @@
   transform-origin: left;
 }
 
+.site-stage,
+.site-stage main {
+  overflow-x: clip;
+}
+
 .page-hero {
   position: relative;
   overflow: hidden;
@@ -607,7 +612,7 @@ main img.rounded-lg:hover {
   }
   .section-x { padding-inline: 1rem; }
   main > div.section-x { padding-top: 3rem; padding-bottom: 3rem; }
-  main > div.section-x:not(.home-page)::before { top: 1rem; width: calc(100% - 2rem); height: 14rem; opacity: 0.62; }
+  main > div.section-x:not(.home-page)::before { top: 1rem; width: calc(100% - 2.5rem); height: 14rem; opacity: 0.62; }
   .book-secondary { gap: 0.65rem; margin-top: 2.75rem; }
   .book-object--lifted { transform: perspective(900px) rotateY(3deg) translateY(0.85rem); }
   .home-hero__inner { min-height: auto; gap: 2.5rem; padding-block: 3.5rem 2.5rem; }
