@@ -140,7 +140,7 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <div className="flex min-h-screen flex-col bg-background">
+      <div className="site-stage flex min-h-screen flex-col bg-background">
         <IntroSplash />
         <SiteHeader />
         <main className="relative z-10 flex-1">

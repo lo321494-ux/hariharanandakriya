@@ -72,6 +72,12 @@
 
 :root {
   --radius: 0.5rem;
+  --depth-perspective: 1200px;
+  --depth-tilt-x: 0.75deg;
+  --depth-tilt-y: -1.5deg;
+  --depth-lift: -5px;
+  --depth-shadow: 1rem 1.35rem 3.5rem -1.7rem oklch(0.3 0.08 54 / 0.34);
+  --depth-transition: 560ms cubic-bezier(0.22, 1, 0.36, 1);
   --background: oklch(0.982 0.013 78);
   --foreground: oklch(0.27 0.035 55);
   --card: oklch(0.995 0.006 91 / 86%);
@@ -216,9 +222,15 @@
   transform-origin: left;
 }
 
+.site-stage,
+.site-stage main {
+  overflow-x: clip;
+}
+
 .page-hero {
   position: relative;
   overflow: hidden;
+  perspective: var(--depth-perspective);
   background:
     linear-gradient(106deg, transparent 0 58%, oklch(0.73 0.14 78 / 0.2) 58.2% 72%, transparent 72.2%),
     linear-gradient(125deg, var(--color-ink), oklch(0.3 0.1 239));
@@ -231,6 +243,16 @@
   content: "";
   opacity: 0.18;
   background-image: repeating-linear-gradient(115deg, transparent 0 35px, oklch(1 0 0 / 0.1) 36px);
+}
+
+.page-hero .section-x {
+  transform-style: preserve-3d;
+  animation: content-arrive 900ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.page-hero h1 {
+  transform: translateZ(2.2rem);
+  text-shadow: 0 0.55rem 1.5rem oklch(0.1 0.03 55 / 0.25);
 }
 
 .intro-splash {
@@ -351,10 +373,13 @@
 main > div:not(.home-page),
 main > article {
   position: relative;
+  perspective: var(--depth-perspective);
 }
 
 main > div.section-x:not(.home-page) {
   isolation: isolate;
+  transform-style: preserve-3d;
+  animation: content-arrive 850ms cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 main > div.section-x:not(.home-page)::before {
@@ -375,6 +400,8 @@ main > div.section-x:not(.home-page)::before {
 
 main > div.section-x > h1 {
   text-wrap: balance;
+  transform: translateZ(1.6rem);
+  text-shadow: 0 0.7rem 1.5rem oklch(0.3 0.08 54 / 0.12);
 }
 
 main > div.section-x > h1::after {
@@ -392,6 +419,39 @@ main ul.rounded-lg {
   border-color: oklch(0.7 0.12 181 / 0.28);
   box-shadow: 0.7rem 0.9rem 2.6rem -1.2rem oklch(0.21 0.08 248 / 0.26), 0 5px 0 -3px oklch(0.68 0.14 181 / 0.42), inset 0 1px 0 oklch(1 0 0 / 0.72);
   backdrop-filter: blur(18px);
+  backface-visibility: hidden;
+  transform: perspective(var(--depth-perspective)) rotateX(var(--depth-tilt-x)) rotateY(var(--depth-tilt-y));
+  transform-origin: center top;
+  transition: transform var(--depth-transition), box-shadow var(--depth-transition);
+}
+
+main blockquote:hover,
+main form:focus-within,
+main ul.rounded-lg:hover {
+  transform: perspective(var(--depth-perspective)) rotateX(0deg) rotateY(0deg) translateY(var(--depth-lift));
+  box-shadow: 1.25rem 1.65rem 4rem -1.5rem oklch(0.3 0.08 54 / 0.3), 0 6px 0 -3px oklch(0.68 0.14 181 / 0.38), inset 0 1px 0 oklch(1 0 0 / 0.78);
+}
+
+main section.border-l {
+  position: relative;
+  transform: perspective(var(--depth-perspective)) translateZ(0);
+  transition: transform var(--depth-transition), border-color var(--depth-transition);
+}
+
+main section.border-l::before {
+  position: absolute;
+  top: 0.3rem;
+  bottom: 0.3rem;
+  left: -1px;
+  width: 3px;
+  content: "";
+  background: linear-gradient(to bottom, var(--color-gold), transparent);
+  transform: translateZ(1rem);
+}
+
+main section.border-l:hover {
+  border-color: var(--color-gold);
+  transform: perspective(var(--depth-perspective)) translate3d(0.35rem, -0.2rem, 1rem);
 }
 
 main ul.rounded-lg > li > a {
@@ -405,11 +465,26 @@ main ul.rounded-lg > li > a:hover {
 main img.rounded-lg {
   box-shadow: 0 1rem 3rem oklch(0.18 0.04 270 / 0.13);
   transition: transform 450ms ease, box-shadow 450ms ease;
+  backface-visibility: hidden;
+  transform: perspective(var(--depth-perspective)) rotateY(var(--depth-tilt-y));
 }
 
 main img.rounded-lg:hover {
   box-shadow: 0 1.5rem 4rem oklch(0.18 0.04 270 / 0.19);
-  transform: translateY(-3px);
+  transform: perspective(var(--depth-perspective)) rotateY(0deg) translateY(var(--depth-lift));
+}
+
+.site-stage main a[class*="border"],
+.site-stage main button {
+  box-shadow: 0 0.65rem 1.4rem -0.85rem oklch(0.3 0.08 54 / 0.32), inset 0 1px 0 oklch(1 0 0 / 0.55);
+  transform: translateZ(0);
+  transition: transform var(--depth-transition), box-shadow var(--depth-transition), background-color 250ms ease, color 250ms ease;
+}
+
+.site-stage main a[class*="border"]:hover,
+.site-stage main button:hover {
+  box-shadow: 0 1rem 2rem -0.85rem oklch(0.3 0.08 54 / 0.34), inset 0 1px 0 oklch(1 0 0 / 0.7);
+  transform: translate3d(0, -3px, 0);
 }
 
 .footer-radiance {
@@ -519,14 +594,25 @@ main img.rounded-lg:hover {
   to { translate: -1rem 1rem; rotate: 5deg; }
 }
 
+@keyframes content-arrive {
+  from { opacity: 0; transform: translateY(1.2rem) rotateX(1.5deg); }
+  to { opacity: 1; transform: translateY(0) rotateX(0deg); }
+}
+
 @media (min-width: 768px) {
   .home-hero__inner { grid-template-columns: minmax(0, 1fr) minmax(22rem, 0.88fr); }
 }
 
 @media (max-width: 767px) {
+  :root {
+    --depth-perspective: 900px;
+    --depth-tilt-x: 0.35deg;
+    --depth-tilt-y: -0.65deg;
+    --depth-lift: -2px;
+  }
   .section-x { padding-inline: 1rem; }
   main > div.section-x { padding-top: 3rem; padding-bottom: 3rem; }
-  main > div.section-x:not(.home-page)::before { top: 1rem; width: calc(100% - 2rem); height: 14rem; opacity: 0.62; }
+  main > div.section-x:not(.home-page)::before { top: 1rem; width: calc(100% - 2.5rem); height: 14rem; opacity: 0.62; }
   .book-secondary { gap: 0.65rem; margin-top: 2.75rem; }
   .book-object--lifted { transform: perspective(900px) rotateY(3deg) translateY(0.85rem); }
   .home-hero__inner { min-height: auto; gap: 2.5rem; padding-block: 3.5rem 2.5rem; }
@@ -537,9 +623,23 @@ main img.rounded-lg:hover {
   .lineage-portrait { width: min(100%, 29rem); margin-inline: auto; padding: 1.2rem 0.6rem 1.5rem; }
   .lineage-portrait__frame { border-radius: 12rem 12rem 0.5rem 0.5rem; }
   .lineage-portrait__plane--one { right: 0; }
+  .page-hero h1,
+  main > div.section-x > h1 { transform: translateZ(0.6rem); }
+  main blockquote,
+  main form,
+  main ul.rounded-lg,
+  main img.rounded-lg { max-width: 100%; }
+  main section.border-l:hover { transform: perspective(var(--depth-perspective)) translate3d(0.15rem, -0.1rem, 0.35rem); }
 }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+  .page-hero h1,
+  main > div.section-x > h1,
+  main blockquote,
+  main form,
+  main ul.rounded-lg,
+  main section.border-l,
+  main img.rounded-lg { transform: none !important; }
 }
 
