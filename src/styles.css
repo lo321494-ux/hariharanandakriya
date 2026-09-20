@@ -498,6 +498,45 @@ main img.rounded-lg:hover {
   box-shadow: 0 0 8rem oklch(0.68 0.14 181 / 0.2), inset 0 0 6rem oklch(0.8 0.15 79 / 0.12);
 }
 
+.footer-logo {
+  position: relative;
+  display: grid;
+  width: min(100%, 18rem);
+  min-height: 8.5rem;
+  margin-bottom: 1.5rem;
+  place-items: center;
+  overflow: hidden;
+  border: 1px solid oklch(0.8 0.15 79 / 0.45);
+  border-radius: var(--radius-lg);
+  background: var(--color-background);
+  box-shadow: 0.9rem 1.2rem 2.8rem -1.1rem oklch(0.08 0.03 55 / 0.72), inset 0 1px 0 oklch(1 0 0 / 0.8);
+  transform: perspective(900px) rotateY(3deg) rotateX(-1deg);
+  transform-origin: left center;
+  transition: transform var(--depth-transition), box-shadow var(--depth-transition);
+}
+
+.footer-logo:hover {
+  box-shadow: 1.2rem 1.6rem 3.2rem -1rem oklch(0.08 0.03 55 / 0.76), 0 0 2.5rem oklch(0.8 0.15 79 / 0.15), inset 0 1px 0 oklch(1 0 0 / 0.85);
+  transform: perspective(900px) rotateY(0deg) rotateX(0deg) translateY(-0.25rem);
+}
+
+.footer-logo__glow {
+  position: absolute;
+  inset: -45% 12%;
+  background: radial-gradient(circle, oklch(0.89 0.14 87 / 0.42), transparent 68%);
+  animation: halo-pulse 4.5s ease-in-out infinite;
+}
+
+.footer-logo img {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: calc(100% - 1.5rem);
+  height: auto;
+  mix-blend-mode: multiply;
+  filter: saturate(1.08) contrast(1.04) drop-shadow(0 0.55rem 0.7rem oklch(0.3 0.08 54 / 0.2));
+}
+
 .editorial-heading {
   position: relative;
   padding-left: 1rem;
@@ -623,6 +662,7 @@ main img.rounded-lg:hover {
   .lineage-portrait { width: min(100%, 29rem); margin-inline: auto; padding: 1.2rem 0.6rem 1.5rem; }
   .lineage-portrait__frame { border-radius: 12rem 12rem 0.5rem 0.5rem; }
   .lineage-portrait__plane--one { right: 0; }
+  .footer-logo { width: min(100%, 16rem); min-height: 7.5rem; transform: perspective(700px) rotateY(1.5deg); }
   .page-hero h1,
   main > div.section-x > h1 { transform: translateZ(0.6rem); }
   main blockquote,
@@ -641,5 +681,6 @@ main img.rounded-lg:hover {
   main ul.rounded-lg,
   main section.border-l,
   main img.rounded-lg { transform: none !important; }
+  .footer-logo { transform: none !important; }
 }
 

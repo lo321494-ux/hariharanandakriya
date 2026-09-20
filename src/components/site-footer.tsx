@@ -8,7 +8,10 @@ export function SiteFooter() {
       <div className="footer-radiance" aria-hidden="true" />
       <div className="section-x grid gap-12 py-16 lg:grid-cols-3">
         <div className="relative">
-          <img src={logo.url} alt="" className="mb-5 h-16 w-auto brightness-0 invert opacity-90" />
+          <div className="footer-logo" aria-hidden="true">
+            <span className="footer-logo__glow" />
+            <img src={logo.url} alt="" />
+          </div>
           <p className="font-display text-2xl">Fundación Hariharananda Kriya Yoga</p>
           <p className="mt-4 max-w-sm text-sm leading-relaxed text-ink-foreground/70">
             Entidad sin ánimo de lucro, apolítica y sin sectarismos, dedicada a diseminar
