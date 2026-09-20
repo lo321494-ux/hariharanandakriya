@@ -12,3 +12,5 @@
 - [x] Verificar nuevamente la portada y el estado técnico.
 - [x] Revisar Prompt_4-7 e incorporarlo a la profundidad 3D móvil solicitada.
 - [x] Verificar que el error indicado no exista y que todas las páginas funcionen correctamente.
+- [x] Restaurar la visibilidad del logo al final de la página con profundidad sutil.
+- [x] Verificar el pie de página en computador y celular.
