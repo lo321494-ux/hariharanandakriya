@@ -169,7 +169,7 @@ function Inicio() {
         </div>
         <figure className="mx-auto mt-12 max-w-3xl overflow-hidden rounded-lg border border-border bg-card shadow-lg">
           <video controls preload="metadata" playsInline className="w-full bg-foreground">
-            <source src="https://hariharanandakriya.org/videos/Yogananda-on-Kriya-Yoga.mp4" type="video/mp4" />
+            <source src="/api/archivo?f=videos%2FYogananda-on-Kriya-Yoga.mp4" type="video/mp4" />
             Su navegador no soporta videos mp4.
           </video>
           <figcaption className="px-4 py-3 text-center text-sm text-muted-foreground">Yogananda - Sobre Kriya</figcaption>

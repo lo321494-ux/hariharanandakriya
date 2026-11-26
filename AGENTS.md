@@ -8,3 +8,4 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+- PDFs and video from hariharanandakriya.org are served through /api/archivo (same origin) and PDFs render with pdfjs-dist; why: Google viewer/native iframes fail on phones and remote has no CORS.

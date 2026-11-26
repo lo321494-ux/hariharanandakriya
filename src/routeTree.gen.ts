@@ -19,6 +19,7 @@ import { Route as KriyaYogaRouteImport } from './routes/kriya-yoga'
 import { Route as LibrosRouteImport } from './routes/libros'
 import { Route as NoticiasRouteImport } from './routes/noticias'
 import { Route as RaghabanandaRouteImport } from './routes/raghabananda'
+import { Route as ApiArchivoRouteImport } from './routes/api/archivo'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -70,6 +71,11 @@ const RaghabanandaRoute = RaghabanandaRouteImport.update({
   path: '/raghabananda',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiArchivoRoute = ApiArchivoRouteImport.update({
+  id: '/api/archivo',
+  path: '/api/archivo',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -82,6 +88,7 @@ export interface FileRoutesByFullPath {
   '/libros': typeof LibrosRoute
   '/noticias': typeof NoticiasRoute
   '/raghabananda': typeof RaghabanandaRoute
+  '/api/archivo': typeof ApiArchivoRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -94,6 +101,7 @@ export interface FileRoutesByTo {
   '/libros': typeof LibrosRoute
   '/noticias': typeof NoticiasRoute
   '/raghabananda': typeof RaghabanandaRoute
+  '/api/archivo': typeof ApiArchivoRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -107,6 +115,7 @@ export interface FileRoutesById {
   '/libros': typeof LibrosRoute
   '/noticias': typeof NoticiasRoute
   '/raghabananda': typeof RaghabanandaRoute
+  '/api/archivo': typeof ApiArchivoRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -121,6 +130,7 @@ export interface FileRouteTypes {
     | '/libros'
     | '/noticias'
     | '/raghabananda'
+    | '/api/archivo'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -133,6 +143,7 @@ export interface FileRouteTypes {
     | '/libros'
     | '/noticias'
     | '/raghabananda'
+    | '/api/archivo'
   id:
     | '__root__'
     | '/'
@@ -145,6 +156,7 @@ export interface FileRouteTypes {
     | '/libros'
     | '/noticias'
     | '/raghabananda'
+    | '/api/archivo'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -158,6 +170,7 @@ export interface RootRouteChildren {
   LibrosRoute: typeof LibrosRoute
   NoticiasRoute: typeof NoticiasRoute
   RaghabanandaRoute: typeof RaghabanandaRoute
+  ApiArchivoRoute: typeof ApiArchivoRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -232,6 +245,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof RaghabanandaRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/archivo': {
+      id: '/api/archivo'
+      path: '/api/archivo'
+      fullPath: '/api/archivo'
+      preLoaderRoute: typeof ApiArchivoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -246,6 +266,7 @@ const rootRouteChildren: RootRouteChildren = {
   LibrosRoute: LibrosRoute,
   NoticiasRoute: NoticiasRoute,
   RaghabanandaRoute: RaghabanandaRoute,
+  ApiArchivoRoute: ApiArchivoRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
