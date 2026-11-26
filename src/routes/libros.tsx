@@ -1,4 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useState } from "react";
+import { DocViewer } from "@/components/doc-viewer";
 import { BookOpen } from "lucide-react";
 import palpitar1 from "@/assets/palpitar1.jpg.asset.json";
 import palpitar2 from "@/assets/palpitar2.jpg.asset.json";
@@ -44,6 +46,7 @@ const portadas = [
 const portadaPrincipal = portadas[0];
 
 function Libros() {
+  const [actual, setActual] = useState(lecturas[0]!);
   return (
     <div className="section-x py-16 md:py-24">
       <header className="editorial-heading mx-auto max-w-4xl">
@@ -74,25 +77,26 @@ function Libros() {
         </div>
       </div>
 
-      <section className="paper-panel mx-auto mt-16 max-w-2xl">
+      <section className="paper-panel mx-auto mt-16 max-w-4xl">
         <h2 className="font-display text-2xl text-primary">
           Seleccione el libro para leer
         </h2>
         <ul className="mt-4 divide-y divide-border rounded-lg border border-aqua/30 bg-card/85 backdrop-blur-xl">
           {lecturas.map((l) => (
             <li key={l.file}>
-              <a
-                href={`https://hariharanandakriya.org/libros/${encodeURIComponent(l.file)}`}
-                target="_blank"
-                rel="noreferrer"
-                className="flex items-center gap-3 px-4 py-3 text-sm text-muted-foreground transition-colors hover:bg-accent hover:text-primary"
+              <button
+                type="button"
+                onClick={() => setActual(l)}
+                aria-pressed={actual.file === l.file}
+                className={`flex w-full items-center gap-3 px-4 py-3 text-left text-sm transition-colors hover:bg-accent hover:text-primary ${actual.file === l.file ? "bg-accent text-primary" : "text-muted-foreground"}`}
               >
                 <BookOpen className="h-4 w-4 shrink-0 text-primary" />
                 {l.label}
-              </a>
+              </button>
             </li>
           ))}
         </ul>
+        <DocViewer url={`https://hariharanandakriya.org/libros/${encodeURIComponent(actual.file)}`} title={actual.label} />
       </section>
     </div>
   );

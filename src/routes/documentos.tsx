@@ -1,4 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useState } from "react";
+import { DocViewer } from "@/components/doc-viewer";
 import { FileText } from "lucide-react";
 import { DOCS_BASE, documentos } from "@/data/documentos";
 
@@ -25,6 +27,7 @@ export const Route = createFileRoute("/documentos")({
 });
 
 function Documentos() {
+  const [actual, setActual] = useState(documentos[0]!.items[0]!);
   return (
     <div className="section-x py-16 md:py-24">
       <h1 className="text-center font-display text-4xl text-foreground md:text-5xl">
@@ -34,6 +37,10 @@ function Documentos() {
         Seleccione el documento para consultar.
       </p>
 
+      <div id="visor-doc" className="mx-auto mt-8 max-w-4xl scroll-mt-24">
+        <DocViewer url={DOCS_BASE + encodeURIComponent(actual.file)} title={actual.label} />
+      </div>
+
       <div className="mx-auto mt-12 max-w-4xl space-y-10">
         {documentos.map((grupo) => (
           <section key={grupo.year}>
@@ -41,15 +48,18 @@ function Documentos() {
             <ul className="mt-4 divide-y divide-border rounded-lg border border-aqua/30 bg-card/85 backdrop-blur-xl">
               {grupo.items.map((doc) => (
                 <li key={grupo.year + doc.file}>
-                  <a
-                    href={DOCS_BASE + encodeURIComponent(doc.file)}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="flex items-start gap-3 px-4 py-3 text-sm text-muted-foreground transition-colors hover:bg-accent hover:text-primary"
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setActual(doc);
+                      document.getElementById("visor-doc")?.scrollIntoView({ behavior: "smooth" });
+                    }}
+                    aria-pressed={actual === doc}
+                    className={`flex w-full items-start gap-3 px-4 py-3 text-left text-sm transition-colors hover:bg-accent hover:text-primary ${actual === doc ? "bg-accent text-primary" : "text-muted-foreground"}`}
                   >
                     <FileText className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
                     <span>{doc.label}</span>
-                  </a>
+                  </button>
                 </li>
               ))}
             </ul>

@@ -167,6 +167,13 @@ function Inicio() {
             práctica sincera y querer <b className="text-foreground">ser feliz</b>.
           </p>
         </div>
+        <figure className="mx-auto mt-12 max-w-3xl overflow-hidden rounded-lg border border-border bg-card shadow-lg">
+          <video controls preload="metadata" playsInline className="w-full bg-foreground">
+            <source src="https://hariharanandakriya.org/videos/Yogananda-on-Kriya-Yoga.mp4" type="video/mp4" />
+            Su navegador no soporta videos mp4.
+          </video>
+          <figcaption className="px-4 py-3 text-center text-sm text-muted-foreground">Yogananda - Sobre Kriya</figcaption>
+        </figure>
         <nav className="mx-auto mt-16 grid max-w-3xl gap-3 sm:grid-cols-2" aria-label="Continuar explorando">
           <Button asChild variant="outline" size="lg" className="h-auto justify-start rounded-md px-5 py-4">
             <Link to="/documentos"><FileText /> Documentos de la Fundación</Link>
